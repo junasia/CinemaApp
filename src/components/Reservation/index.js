@@ -1,4 +1,4 @@
-import { MemoryRouter, Route, Redirect } from "react-router-dom";
+import { Switch, MemoryRouter, Route, Redirect } from "react-router-dom";
 import React from "react";
 import ReservationSeats from "./ReservationSeats";
 import ReservationForm from "./ReservationForm";
@@ -8,11 +8,11 @@ const Reservation = () => {
     return (
         <MemoryRouter basename={"reservation"}>
             <Redirect to="/seats" />
-            <div>
+            <Switch>
                 <Route path="/seats" exact component={ReservationSeats} />
                 <Route path="/form" exact component={ReservationForm} />
                 <Route path="/done" exact component={ReservationDone} />
-            </div>
+            </Switch>
         </MemoryRouter>
     );
 };
