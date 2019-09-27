@@ -1,9 +1,15 @@
 import React from "react";
+import Navbar from "./Navbar";
+import Routes from "./Routes";
+import { BrowserRouter } from "react-router-dom";
 
-class App extends React.Component {
-    render() {
-        return <div>This is app.js</div>;
-    }
-}
+const App = () => {
+    return (
+        <BrowserRouter>
+            <Navbar />
+            <Routes />
+        </BrowserRouter>
+    );
+};
 
 export default App;
