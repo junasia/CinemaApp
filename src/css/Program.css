@@ -1,0 +1,15 @@
+.film-list img {
+    height: 128px;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.film {
+    display: flex;
+    margin: 10px;
+    border: 2px solid black;
+    min-width: 300px;
+}
