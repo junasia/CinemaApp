@@ -9,8 +9,7 @@ const Navbar = () => {
                 padding: '5px'
             }}
         >
-            <Link to="/"> To Main</Link>
-            <Link to="/program"> To Program</Link>
+            <Link to="/"> To Program</Link>
             <Link to="/reservation"> To Reservation</Link>
         </div>
     );
