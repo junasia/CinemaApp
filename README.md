@@ -1,6 +1,6 @@
 # CinemaApp
 To są informacje, którymi możemy rozdysponować.
-
+    "Title":"The Lion King"
     "Year":"2019"
     "Rated":"PG"
     "Released":"19 Jul 2019"
