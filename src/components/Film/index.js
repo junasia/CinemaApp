@@ -27,7 +27,7 @@ class Film extends React.Component {
 
         return (
             <div className="film-details">
-                <img src={film.Poster} />
+                <img src={film.Poster} alt="poster" />
                 <div className="film-info">
                     <div>{info}</div>
                 </div>
