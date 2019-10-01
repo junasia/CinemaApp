@@ -7,7 +7,7 @@ import Prices from './Prices';
 
 const Router = () => {
     return (
-        <Switch className="router d-flex flex-column align-items-center">
+        <Switch>
             <Route path="/" exact component={Program} />
             <Route path="/prices" exact component={Prices} />
             <Route path="/film/:id" exact component={Film} />

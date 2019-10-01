@@ -7,7 +7,7 @@ import '../../css/Program.css';
 class Program extends React.Component {
     render() {
         return (
-            <div className="program">
+            <div className="d-flex flex-column align-items-center">
                 <p>List of today's films: </p>
                 <FilmList />
             </div>
