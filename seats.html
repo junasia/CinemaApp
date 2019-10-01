@@ -15,6 +15,72 @@
 </head>
 
 <body>
-    Choose seats
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1">Cinema Town <small class="navbar-band">the best cinemas</small></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Program
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">First cinema</a>
+                        <a class="dropdown-item" href="#">Second cinema</a>
+                        <a class="dropdown-item" href="#">Third cinema</a>
+                    </div>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="list_of_films.html">Now in cinemas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="prices.html">Prices</a>
+            </li>
+            </ul>
+        </div>  
+    </nav>
+    <container class="d-flex flex-column align-items-center">
+        <div class="jumbotron pt-3 mt-3" style="width:80vw">
+            <h1 class="display-4">Choose seat</h1>
+            <p class="lead">Find seat, which is the most suitable for you and click on it.</p>
+            <hr class="my-4">
+            <h3>Title: The Lion King</h3>
+            <form>
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <label for="inputDate">Date</label>
+                        <input type="date" class="form-control" id="inputDate" value="2019-10-01" min="2019-10-01" max="2019-10-08">
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="inputTime">Time</label>
+                        <select id="inputTime" class="form-control">
+                            <option selected>13:00</option>
+                            <option>15:00</option>
+                            <option>17:30</option>
+                        </select>
+                    </div>
+                </div>
+            </form>  
+        </div>
+        <div class="screen text-center"><small>SCREEN</small></div>
+        <div class="seats-container" style="width:80vw">
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: A/1" onclick="onSeatClick">1</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: A/2" onclick="onSeatClick">2</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: A/10" onclick="onSeatClick">10</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: B/1" onclick="onSeatClick">1</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: B/2" onclick="onSeatClick">2</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: B/10" onclick="onSeatClick">10</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: J/1" onclick="onSeatClick">1</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: J/2" onclick="onSeatClick">2</button>
+            <button type="button" class="btn btn-success btn-sm" style="grid-area: J/10" onclick="onSeatClick">10</button>
+
+        </div>
+
+    </container>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>

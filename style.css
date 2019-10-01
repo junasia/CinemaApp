@@ -5,3 +5,32 @@ body
   background-position: left top;
   background-attachment: fixed;
 }
+
+.seats-container
+{
+  background: white;
+  display: grid;
+  grid-template-columns: repeat(10,30px);
+  grid-template-rows: [Z] 30px [A] 30px [B] 30px [C] 30px [D] 30px [E] 30px [F] 30px [G] 30px [H] 30px [I] 30px [J];
+  grid-gap: 5px;
+  justify-content: center;
+  justify-items: stretch;
+  align-content: start;
+}
+
+.seats-container > button
+{
+  border-radius: 0;
+}
+
+.seats-container > button:focus
+{
+  box-shadow: none;
+}
+
+.screen
+{
+  background-color: black;
+  color: white;
+  width: 100px;
+}
