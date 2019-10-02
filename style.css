@@ -52,3 +52,32 @@ body
   width: 100%;
   text-align: center;
 }
+
+
+
+.personalInfoForm
+{
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.seat > span
+{
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.seat > input + span
+{
+  color: white;
+  background-color: var(--success);
+}
+
+.seat > input:checked + span
+{
+  color: black;
+  background-color: var(--warning);
+}
