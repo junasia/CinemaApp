@@ -25,3 +25,8 @@ const _fetchFilm = _.memoize(async (id, dispatch) => {
     const response = await omdb.get('', { params: { i: id } });
     dispatch({ type: 'FETCH_FILM', payload: response.data });
 });
+
+export const fetchCinemas = () => async dispatch => {
+   const response = await heroku.get('cinemas/');
+   dispatch({type: 'FETCH_CINEMAS',payload: response.data});
+}

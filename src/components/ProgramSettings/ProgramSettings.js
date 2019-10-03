@@ -1,43 +1,13 @@
 import React, {Component} from 'react';
+import { fetchCinemas } from '../../actions';
+import { connect } from 'react-redux';
 
 class ProgramSettings extends Component {
 
-    constructor() {
-        super();
-
-        this.state = {
-            cinemas: []
-        }
-    }
-
-    // componentWillMount(){
-    //     this.renderCinemas()
-    // }
-
+   
     componentDidMount() {
-        this.loadMovies();
+        this.props.fetchCinemas();
     }
-
-    async loadMovies() {
-        await fetch('https://api.cinelist.co.uk/search/cinemas/location/St.%20Albans',{
-            method: 'GET',
-            headers: {
-                'Content-Type' : "application/json"
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            let cinemasFromApi = [];
-            for(let i=1; i<5; i++) {
-                cinemasFromApi.push(res.cinemas[i]);
-            }
-            this.setState({cinemas : cinemasFromApi});
-        })
-        
-
-        //  console.log(this.state);
-    }
-
 
 
     render() {
@@ -65,14 +35,17 @@ class ProgramSettings extends Component {
     }
 
     renderCinemas() {
-        if(this.state.cinemas.length == 0) {
-            return null;
-        }
-        return this.state.cinemas.map(function(cinema){
-            return <option>{cinema.name}</option>;
+        if(!this.props.cinemas) return <div />;
+        console.log('cinemas',this.props.cinemas);
+        return this.props.cinemas.map(cinema => {
+            return <option key={cinema.id}>{cinema.name}</option>
         })
     }
 
 }
 
-export default ProgramSettings;
+const mapStateToProps = state => {
+    return {cinemas: state.cinemas}
+}
+
+export default connect(mapStateToProps,{fetchCinemas})(ProgramSettings);
