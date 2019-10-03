@@ -6,7 +6,12 @@ import { fetchFilms } from '../../actions';
 
 class FilmList extends React.Component {
     componentDidMount() {
-        this.props.fetchFilms('5d93af0a4d62591ddcfa0f4b');
+        this.props.fetchFilms('5d93af0a4d62591ddcfa0f4a');
+    }
+
+    componentDidUpdate() {
+        this.props.fetchFilms(this.props.cinema);
+        console.log("AKTUALIZACJA !!!",this.props)
     }
 
     render() {
@@ -23,7 +28,7 @@ class FilmList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { films: state.films };
+    return { films: state.films,cinema: state.cinema };
 };
 
 export default connect(

@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
-import { fetchCinemas } from '../../actions';
+import { fetchCinemas,saveCinema } from '../../actions';
 import { connect } from 'react-redux';
 
 class ProgramSettings extends Component {
 
-   
+    
+    callThis = (e) => {
+        this.props.saveCinema(e.target.value);
+    }
+
     componentDidMount() {
         this.props.fetchCinemas();
+    }
+
+    chooseCinema() {
+        console.log(this.selectRef);
     }
 
 
@@ -24,7 +32,7 @@ class ProgramSettings extends Component {
                     </div>
                     <div className="col-sm-6">
                         <label for="inputCinema">Cinema</label>
-                        <select id="inputCinema" className="form-control" >
+                        <select ref={this.selectRef} id="inputCinema" className="form-control" onChange={this.callThis}>
                             {this.renderCinemas()}
                         </select>
                     </div>
@@ -38,14 +46,14 @@ class ProgramSettings extends Component {
         if(!this.props.cinemas) return <div />;
         console.log('cinemas',this.props.cinemas);
         return this.props.cinemas.map(cinema => {
-            return <option key={cinema.id}>{cinema.name}</option>
+            return <option value={cinema.id} key={cinema.id}>{cinema.name}</option>
         })
     }
 
 }
 
 const mapStateToProps = state => {
-    return {cinemas: state.cinemas}
+    return {cinemas: state.cinemas, cinema: state.cinema}
 }
 
-export default connect(mapStateToProps,{fetchCinemas})(ProgramSettings);
+export default connect(mapStateToProps,{fetchCinemas,saveCinema})(ProgramSettings);

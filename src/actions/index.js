@@ -29,4 +29,17 @@ const _fetchFilm = _.memoize(async (id, dispatch) => {
 export const fetchCinemas = () => async dispatch => {
    const response = await heroku.get('cinemas/');
    dispatch({type: 'FETCH_CINEMAS',payload: response.data});
-}
+};
+
+// export const fetchCinemas = () => async dispatch => _fetchCinemas(dispatch);
+// const _fetchCinemas = _.memoize(async (dispatch) => {
+//     const response = await heroku.get('cinemas/');
+//     dispatch({type: 'FETCH_CINEMAS',payload: response.data});
+// })
+
+
+
+export const saveCinema = (id) => dispatch => {
+    if(!id) return null;
+    dispatch({type: 'SAVE_CINEMA',payload: id});
+ }
