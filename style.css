@@ -4,26 +4,28 @@ body
   background-repeat: repeat;
   background-position: left top;
   background-attachment: fixed;
+  position: relative;
+  min-height: 100vh;
 }
 
 .list__container {
   display: flex;
-};
+}
 
 .card-action {
   position: relative;
-};
+}
 
 .card-action .link {
   position: absolute;
   display: block;
-};
+}
 
 .foot
 {
-  position: relative;
+  position: absolute;
   bottom: 0;
-  left:0;
+  left: 0;
   color: white;
   height: 30px;
   width: 100%;
