@@ -6,6 +6,11 @@ body
   background-attachment: fixed; 
 }
 
+.width-80
+{
+  width: 80vw;
+}
+
 #priceTable{
   max-width: 500px;
 }
