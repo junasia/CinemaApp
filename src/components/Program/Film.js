@@ -20,7 +20,7 @@ const Film = ({ film }) => {
                     <div>
                         {film.hours.map(x => {
                             return (
-                                <Link to="/reservation" key={x.id} className="btn btn-primary btn-sm mb-1">
+                                <Link to="/reservation" key={x.id} className="btn btn-primary btn-sm mb-1 mr-1">
                                     {x.hour}
                                 </Link>
                             );

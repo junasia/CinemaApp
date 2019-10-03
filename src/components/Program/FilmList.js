@@ -10,11 +10,7 @@ class FilmList extends React.Component {
     }
 
     render() {
-        return (
-            <ul className="list-group list-group-flush" style={{ width: '80vw' }}>
-                {this.renderList()}
-            </ul>
-        );
+        return <ul className="list-group list-group-flush width-80">{this.renderList()}</ul>;
     }
 
     renderList() {
