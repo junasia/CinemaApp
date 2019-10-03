@@ -1,8 +1,7 @@
 body
 {
   background-image: url("footer_lodyas.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: left top;
   background-attachment: fixed;
 }
@@ -19,6 +18,17 @@ body
   position: absolute;
   display: block;
 };
+
+.foot
+{
+  position: relative;
+  bottom: 0;
+  left:0;
+  color: white;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+}
 
 .focus1{
   transition-duration: 2s;
