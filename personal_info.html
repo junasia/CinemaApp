@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
-        <span class="navbar-brand mb-0 h1">Cinema Town <small class="navbar-band">the best cinemas</small></span>
+        <span class="navbar-brand mb-0 h1">Cinema Town <small>the best cinemas</small></span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,26 +41,31 @@
             </ul>
         </div>  
     </nav>
-    <container class="d-flex flex-column align-items-center mb-4">
+    <container class="d-flex flex-column align-items-center position-relative pb-5">
         <div class="jumbotron pt-3 mt-3" style="width:80vw">
             <h1 class="display-4">Provide contact details</h1>
             <p class="lead">We will send you the reservation confirmation to the e-mail address.</p>
             <hr class="my-4">
-            
+            <h5>Reservation details:</h5>
+            <div class="row">
+                <h6>Title:</h6>
+                <p>The Lion King</p>
+            </div>
+            <div class="row">
+                <h6>Date:</h6>
+                <p>02.10.2019</p>
+            </div>
+            <div class="row">
+                <h6>Time:</h6>
+                <p>15:00</p>
+            </div>
+            <div class="row">
+                <h6>Seats:</h6>
+                <p>B2 B3</p>
+            </div>
         </div>
 
         <ul class="list-group list-group-flush" style="width:80vw">
-            <li class="list-group-item">
-                <div class="form-group row">
-                    <h5 class="col-sm-auto">Your reservation:</h5>
-                    <div class="col d-flex justify-content-start">
-                        <p class="mr-3">The Lion King</p>
-                        <p class="mr-3">02.10.2019</p>
-                        <p>15:00</p>
-                    </div>
-                </div>
-                    
-            </li>
             <li class="list-group-item">
                 <form class="personalInfoForm">
                     <div class="form-group row">
@@ -94,18 +99,13 @@
                 <div class="d-flex justify-content-around">
                     <button type="button" class="btn btn-warning">Back</button>
                     <button type="button" class="btn btn-success">Next</button>
-                </div>
-
-                
+                </div>                
             </li>
         </ul>
+        <footer class="foot bg-secondary">
+            <p class="m-0">&copy wiatrgonifale</p>
+        </footer>
     </container>
-
-    <footer class="foot bg-secondary">
-        <p class="m-0">&copy wiatrgonifale</p>
-    </footer>
-
-
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
