@@ -6,39 +6,29 @@ const Film = ({ film }) => {
         <li className="list-group-item">
             <div className="row">
                 <div className="col-sm-2">
-                    <Link to={'/film/' + film.imdbID}>
-                        <img className="img-thumbnail img-fluid" alt={film.Title} src={film.Poster} />
+                    <Link to={'/film/' + film.movie._id}>
+                        <img className="img-thumbnail img-fluid" alt={film.movie.name} src={film.movie.poster} />
                     </Link>
                 </div>
                 <div className="col-sm-10">
-                    <h5 className="mb-1">{film.Title}</h5>
+                    <h5 className="mb-1">{film.movie.title}</h5>
                     <p>
                         <small className="text-muted">
-                            {film.Genre} | {film.Runtime}
+                            {film.movie.genre} | {film.movie.runtime}
                         </small>
                     </p>
                     <div>
-                        {/* {film.hours.map(x => {
+                        {film.hours.map(x => {
                             return (
-                                <Link to="/reservation" key={x.id} className="btn btn-primary btn-sm mb-1">
-                                    x.hour
+                                <Link to="/reservation" key={x.id} className="btn btn-primary btn-sm mb-1 mr-1">
+                                    {x.hour}
                                 </Link>
                             );
-                        })} */}
-                        <Link to="/reservation" className="btn btn-primary btn-sm mb-1">
-                            15:33
-                        </Link>
+                        })}
                     </div>
                 </div>
             </div>
         </li>
-        // <Link to={'/film/' + film.imdbID} className="film">
-        //     <img alt={film.Title} src={film.Poster} />
-        //     <p>
-        //         {film.Title}
-        //         <br />({film.Year})
-        //     </p>
-        // </Link>
     );
 };
 

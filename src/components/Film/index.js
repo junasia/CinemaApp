@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchFilm } from '../../actions';
-import '../../css/Film.css';
 
 class Film extends React.Component {
     componentDidMount() {

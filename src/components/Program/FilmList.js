@@ -1,25 +1,23 @@
 import React from 'react';
+import axios from 'axios';
 import Film from './Film';
 import { connect } from 'react-redux';
 import { fetchFilms } from '../../actions';
 
 class FilmList extends React.Component {
     componentDidMount() {
-        this.props.fetchFilms('Titanic');
+        this.props.fetchFilms('5d93af0a4d62591ddcfa0f4b');
     }
 
     render() {
-        return (
-            <ul className="list-group list-group-flush" style={{ width: '80vw' }}>
-                {this.renderList()}
-            </ul>
-        );
+        return <ul className="list-group list-group-flush width-80">{this.renderList()}</ul>;
     }
 
     renderList() {
         if (!this.props.films) return <div />;
+        console.log('films', this.props.films);
         return this.props.films.map(x => {
-            return <Film key={x.imdbID} film={x} />;
+            return <Film key={x.movie._id} film={x} />;
         });
     }
 }
