@@ -5,7 +5,7 @@ import { fetchFilms } from '../../actions';
 
 class FilmList extends React.Component {
     componentDidMount() {
-        this.props.fetchFilms('Batman');
+        this.props.fetchFilms('Titanic');
     }
 
     render() {
