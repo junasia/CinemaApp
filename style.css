@@ -1,0 +1,87 @@
+body
+{
+  background-image: url("footer_lodyas.png");
+  background-repeat: repeat;
+  background-position: left top;
+  background-attachment: fixed;
+  height: 100vh;
+  position:relative;
+}
+
+.width-80
+{
+  width: 80vw;
+}
+
+figure
+{
+  width:200px;
+}
+
+#priceTable
+{
+  max-width: 500px;
+}
+
+.foot
+{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right:0;
+  color: white;
+  height: 30px;
+  text-align: center;
+}
+
+img
+{
+  transition-duration: 1s;
+}
+
+figure:hover > img
+{
+  transform: scale(0.9);
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.5)
+}
+
+.seats-container
+{
+  display: grid;
+  grid-template-columns: repeat(10,30px);
+  grid-template-rows: [A] 30px [B] 30px [C] 30px [D] 30px [E] 30px [F] 30px [G] 30px [H] 30px [I] 30px [J];
+  grid-gap: 5px;
+  justify-content: center;
+  justify-items: stretch;
+  align-content: start;
+}
+
+.seats-container > button
+{
+  border-radius: 0;
+}
+
+.seats-container > label
+{
+  width: 30px;
+  height: 30px;
+}
+
+.seats-container > button:focus
+{
+  box-shadow: none;
+}
+
+.screen
+{
+  background-color: black;
+  color: white;
+  width: 100px;
+}
+
+.personalInfoForm
+{
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
