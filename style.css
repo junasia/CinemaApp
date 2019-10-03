@@ -3,9 +3,7 @@ body
   background-image: url("footer_lodyas.png");
   background-repeat: repeat;
   background-position: left top;
-  background-attachment: fixed;
-  position: relative;
-  min-height: 100vh;
+  background-attachment: fixed; 
 }
 
 .list__container {
