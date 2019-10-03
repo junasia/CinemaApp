@@ -42,7 +42,7 @@
             </ul>
         </div>  
     </nav>
-    <container class="d-flex flex-column align-items-center mb-4">
+    <container class="d-flex flex-column align-items-center position-relative pb-5">
         <div class="jumbotron pt-3 mt-3 width-80">
             <h1 class="display-4">Choose seat</h1>
             <p class="lead">Find seat, which is the most suitable for you and click on it.</p>
@@ -75,20 +75,15 @@
             <li class="list-group-item d-flex flex-column align-items-center">
                 <div class="screen text-center"><small>SCREEN</small></div>
                 <div class="seats-container mt-4">
-                    <label class="seat">
-                        <input type="checkbox"/>
-                        <span style="grid-area: C/1">1</span>
-                     </label>
-
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: A/1" onclick="onSeatClick">1</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: A/2" onclick="onSeatClick">2</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: A/10" onclick="onSeatClick">10</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: B/1" onclick="onSeatClick">1</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: B/2" onclick="onSeatClick">2</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: B/10" onclick="onSeatClick">10</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/1" onclick="onSeatClick">1</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/2" onclick="onSeatClick">2</button>
-                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/10" onclick="onSeatClick">10</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: A/1">1</button>
+                    <button type="button" class="btn btn-danger btn-sm" style="grid-area: A/2">2</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: A/10">10</button>
+                    <button type="button" class="btn btn-secondary btn-sm" disabled style="grid-area: B/1">1</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: B/2">2</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: B/10">10</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/1">1</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/2">2</button>
+                    <button type="button" class="btn btn-success btn-sm" style="grid-area: J/10">10</button>
                 </div>
                 
                 <div class="d-flex justify-content-around w-100 mt-5">
@@ -97,11 +92,12 @@
                 </div>
             </li>
         </ul>
+        <footer class="foot bg-secondary">
+            <p class="m-0">&copy wiatrgonifale</p>
+        </footer>
     
     </container>
-    <footer class="foot bg-secondary">
-        <p class="m-0">&copy wiatrgonifale</p>
-    </footer>
+    
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
