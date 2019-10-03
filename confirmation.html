@@ -15,6 +15,71 @@
 </head>
 
 <body>
-    Confirmation of reservation (information about email)
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+        <span class="navbar-brand mb-0 h1">Cinema Town <small>the best cinemas</small></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Program
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">First cinema</a>
+                        <a class="dropdown-item" href="#">Second cinema</a>
+                        <a class="dropdown-item" href="#">Third cinema</a>
+                    </div>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="list_of_films.html">Now in cinemas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="prices.html">Prices</a>
+            </li>
+            </ul>
+        </div>  
+    </nav>
+    <container class="d-flex flex-column align-items-center">
+        <div class="jumbotron pt-3 mt-3 width-80">
+            <h1 class="display-4">Success!</h1>
+            <p class="lead">The confirmation resrevation has been succesfully sent to provided email adress.
+                    Show it at the Box Office and buy your tickets no later than 30 minutes before the screening.
+                    See you soon!
+            </p>
+            <hr class="my-4">
+            <h5>Reservation details:</h5>
+            <div class="row">
+                <div class="col-sm">
+                    <p class="font-weight-bold m-0">Title: </p>
+                    <p>The Lion King</p>
+                </div>
+                <div class="col-sm">
+                    <p class="font-weight-bold m-0" class="m-0">Date:</p>
+                    <p>02.10.2019</p>
+                </div>
+                <div class="col-sm">
+                    <p class="font-weight-bold m-0" class="m-0">Time:</p>
+                    <p>15:00</p>
+                </div>
+                <div class="col-sm">
+                    <p class="font-weight-bold m-0" class="m-0">Seats:</p>
+                    <p>B2 B3</p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-around">
+                <button type="button" href="index.html" class="btn btn-success mt-5">Home</button>
+            </div>
+        </div>
+
+        <footer class="foot bg-secondary">
+            <p class="m-0">&copy wiatrgonifale</p>
+        </footer>
+    </container>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
