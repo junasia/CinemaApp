@@ -2,40 +2,53 @@ import React from 'react';
 
 const Prices = () => {
     return (
-        <div className="d-flex flex-column align-items-center mb-4">
-            <h1 style={{ color: 'white', textAlign: 'center', marginTop: '20px' }}>CENNIK</h1>
-            <br />
-            <table style={{ textAlign: 'center' }} class="table table-hover table-dark">
-                <thead>
-                    <tr style={{ textAlign: 'center' }}>
-                        <th scope="col"></th>
-                        <th scope="col">Dzień roboczy (pn-czw)</th>
-                        <th scope="col">Weekend (pt-nd)/Święta</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">normalny</th>
-                        <td>15,00 zł</td>
-                        <td>15,00 zł</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">dziecko</th>
-                        <td>15,00 zł</td>
-                        <td>15,00 zł</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">uczeń/student</th>
-                        <td>15,00 zł</td>
-                        <td>15,00 zł</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">senior</th>
-                        <td>15,00 zł</td>
-                        <td>15,00 zł</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="d-flex flex-column align-items-center">
+            <ul className="list-group list-group-flush mt-3 width-80">
+                <li className="list-group-item">
+                    <h1>Prices</h1>
+                </li>
+                <li className="list-group-item">
+                    <table id="priceTable" className="table table-hover mx-auto text-center">
+                        <thead className="thead-dark">
+                            <tr>
+                                <th scope="col"></th>
+                                <th scope="col">Mon-Thu</th>
+                                <th scope="col">Fri-Sun/ Holidays</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" className="text-left">
+                                    Adult
+                                </th>
+                                <td>16 €</td>
+                                <td>18 €</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" className="text-left">
+                                    Child <small className="text-muted">under 6</small>
+                                </th>
+                                <td>12 €</td>
+                                <td>14 €</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" className="text-left">
+                                    Student <small className="text-muted">ID required</small>
+                                </th>
+                                <td>14 €</td>
+                                <td>16 €</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" className="text-left">
+                                    Senior
+                                </th>
+                                <td>12 €</td>
+                                <td>14 €</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </li>
+            </ul>
         </div>
     );
 };
