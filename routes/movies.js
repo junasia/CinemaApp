@@ -5,7 +5,7 @@ const cors = require('cors');
 
 router.get('/:id', cors(), async (req, res) => 
 {
-    let movies = await Movie.find({_id: req.params.id});
+    let movies = await Movie.find({id: req.params.id});
     res.send(movies);
 });
 

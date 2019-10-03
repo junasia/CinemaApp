@@ -30,8 +30,7 @@ var rule = new schedule.RecurrenceRule();
 rule.dayOfWeek = 0;
 rule.hour = 20;
 rule.minute = 0;
-var j = schedule.scheduleJob(rule, async function()
-{
+var j = schedule.scheduleJob(rule, async function () {
     deleteAll();
     b(1);
     b(2);
@@ -42,72 +41,104 @@ var j = schedule.scheduleJob(rule, async function()
     b(7);
 });
 
-async function deleteAll()
-{
+async function deleteAll() {
     let seances = await Seance.deleteMany();
-    let movies = await Movie.deleteMany();
+    //let movies = await Movie.deleteMany();
     let reservations = await Reservation.deleteMany();
 }
 
-async function b(y)
-{
+async function b(y) {
     var date = new Date();
+    date.setHours(0, 0, 0, 0);
     date.setDate(date.getDate() + y);
-    var day = `${date.getDate()}:${date.getMonth()}`;
     let cinemas = await Cinema.find();
-    cinemas.forEach(async x =>
-    {   
-            var seances = await api.ProgramAPI.fetchProgram(x.id, y);
-            seances.forEach(async g =>
-            {
-                var mv = await api.FilmAPI.fetchFilm(g.title);
-                if(!mv.Title || mv.Poster == "N/A") return;
-                var movie = await Movie.findById(mv.imdbID||g.title);
-                
-                if(movie == null)
-                {
-                    movie = new Movie({_id: mv.imdbID||g.title, name: mv.Title||g.title, description: mv.Plot||"N/A", poster: mv.Poster||"N/A", genre: mv.Genre||"N/A", runtime: mv.Runtime||"N/A"});
-                    try
-                    {
-                        await movie.save();
-                    }
-                    catch
-                    {
+    cinemas.forEach(async cinema => {
+        var seances = await api.ProgramAPI.fetchProgram(cinema.id, y);
+        if (seances == null) return;
+        seances.forEach(async g => {
+            try {
+                var mv = await api.FilmAPI.findFilm(g.title);
+            } catch (error) {
+                return console.log(error);
+            }
+            if (mv.Search == null) return;
+            mv = mv.Search.reduce((a, b) => (parseInt(a.Year) < parseInt(b.Year)) ? b : a)
+            if (!mv.Title || mv.Poster == "N/A") return;
+            var movie = await Movie.findOne({
+                imdbID: mv.imdbID
+            }).populate('seances');
 
-                    }
-                }
-                g.times.forEach(async h =>
-                {
-                    var seance = new Seance({cinema: x._id, movie: movie._id, hour: h, day: date, seats: 
-                        [
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true],
-                            [true, true, true, true, true, true, true, true, true, true]
-                        ]});
-                        
-                    await seance.save();
+            if (movie == null || !movie.poster) {
+                mv = await api.FilmAPI.fetchFilm(mv.imdbID);
+                movie = new Movie({
+                    imdbID: mv.imdbID || g.title,
+                    name: mv.Title || g.title,
+                    description: mv.Plot || "N/A",
+                    poster: mv.Poster || "N/A",
+                    genre: mv.Genre || "N/A",
+                    runtime: mv.Runtime || "N/A",
+                    days: []
                 });
-            });   
-    }
-    );
+                try {
+                    movie = await movie.save().populate('seances');
+                    return console.log('movie:   ', movie, '//////');
+                } catch (error) {
+                    console.log("error!!!!!!!")
+                }
+            }
+            g.times.forEach(async h => {
+                let day = movie.days.find(x => {
+                    return ((x.cinema.toString() == cinema._id) && (x.date.valueOf() == date.valueOf()));
+                });
+                //console.log('day', movie.populate('seances').days.find(y => ((y.cinema.toString() == cinema._id) && (y.date.valueOf() == date.valueOf()))))
+                if (day != undefined) {
+                    day.seances.forEach(async x => {
+                        let seance = await Seance.findById(x);
+                        console.log(x, seance);
+                        //if (seance.hour == h) return;
+                    })
+                }
+                let seance = new Seance({
+                    hour: h,
+                    seats: [
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true],
+                        [true, true, true, true, true, true, true, true, true, true]
+                    ]
+                });
+                seance = await seance.save();
+                if (day == undefined)
+                    movie.days.push({
+                        cinema: cinema._id,
+                        date: date,
+                        seances: [seance._id]
+                    })
+                else
+                    day.seances.push(seance._id)
+
+                movie = await movie.save();
+                return console.log('seance:', movie, seance);
+            });
+        });
+    });
 }
 deleteAll();
-    b(1);
-    b(2);
-    b(3);
-    b(4);
-    b(5);
-    b(6);
-    b(7);
+b(1);
+// b(2);
+// b(3);
+// b(4);
+// b(5);
+// b(6);
+// b(7);
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => console.log(`Listening on port ${port}...`));
