@@ -6,6 +6,9 @@ body
   background-attachment: fixed; 
 }
 
+#priceTable{
+  max-width: 500px;
+}
 .list__container {
   display: flex;
 }
