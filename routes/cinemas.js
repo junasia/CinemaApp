@@ -16,18 +16,28 @@ router.get('/', cors(), async (req, res) => {
 });
 
 router.get('/:id', cors(), async (req, res) => {
-    let cinemas = await Seance.find({
-        cinema: req.params.id
-    }).populate('Movies');
-    if (!cinemas) return res.status(404).send('Cinema not found');
-    res.send(cinemas.map(x => {
-        return {
-            id: x.id,
-            hour: x.hour,
-            movie: x.movie,
-            day: x.day
-        }
-    }));
+    let cinema = await Cinema.findOne({
+        id: req.params.id
+    });
+    let movies = await Movie.find();
+    //console.log(movies);
+    movies = movies.filter(x => x != undefined && x.days != undefined)
+        .filter(y => {
+            return y.days.find(z => {
+
+                return z.cinema._id == cinema._id.toString();
+            }) != undefined
+        });
+    console.log(movies);
+    movies = movies.map(x => {
+        x.days = x.days.filter(y => y.cinema == cinema._id.toString());
+        return x;
+    });
+    console.log(movies);
+
+    if (!cinema) return res.status(404).send('Cinema not found');
+    cinema.movies = movies;
+    res.send(cinema);
 });
 
 module.exports = router;
