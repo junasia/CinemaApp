@@ -30,22 +30,33 @@ const FilmAPI = {
     findFilm: async function (input = '') {
         if (!input) return [];
         let conn = this.getConnectionLinkSearchFromInput(input);
-        let film = fetch(conn)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(err => err);
-        return await film;
+        let film;
+        try {
+            film = await fetch(conn)
+                .then(response => response.json())
+                .then(data => data)
+                .catch(err => err);
+        } catch (error) {
+            console.log('error');
+            return null;
+        }
+        return film;
     },
 
     fetchFilm: async function (input = '') {
         if (!input) return [];
         let conn = this.getConnectionLinkFromInput(input);
-        console.log('conn: ', conn);
-        let film = fetch(conn)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(err => err);
-        return await film;
+        let film;
+        try {
+            film = await fetch(conn)
+                .then(response => response.json())
+                .then(data => data)
+                .catch(err => err);
+        } catch (error) {
+            console.log('error');
+            return null;
+        }
+        return film;
     }
 }
 

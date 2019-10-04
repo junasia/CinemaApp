@@ -27,8 +27,11 @@ const movieSchema = new mongoose.Schema({
         },
         date: Date,
         seances: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Seance'
+            hour: String,
+            _id: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Seance'
+            }
         }]
     }]
 })
