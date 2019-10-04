@@ -25,12 +25,12 @@ mongoose.connect(config.get('db'))
     .then(() => console.log('Connected to MongoDB...'))
     .catch(err => console.error('err'));
 
-var cinemasID = [10589, 8672, 10532, 4258, 9664];
-var rule = new schedule.RecurrenceRule();
+const cinemasID = [10589, 8672, 10532, 4258, 9664];
+const rule = new schedule.RecurrenceRule();
 rule.dayOfWeek = 0;
 rule.hour = 20;
 rule.minute = 0;
-var j = schedule.scheduleJob(rule, async function () {
+const j = schedule.scheduleJob(rule, async function () {
     await deleteAll();
     await b(1);
     await b(2);
@@ -42,8 +42,8 @@ var j = schedule.scheduleJob(rule, async function () {
 });
 
 async function deleteAll() {
-    //let seances = await Seance.deleteMany();
-    //let movies = await Movie.deleteMany();
+    let seances = await Seance.deleteMany();
+    let movies = await Movie.deleteMany();
     let reservations = await Reservation.deleteMany();
 }
 
@@ -57,16 +57,17 @@ async function loadMovies(seances) {
             console.log('error');
             continue;
         }
-        if (mv == null) return;
-        if (mv.Search == null) return;
-        mv = mv.Search.reduce((a, b) => (parseInt(a.Year) < parseInt(b.Year)) ? b : a)
-        if (!mv.Title || mv.Poster == "N/A") return;
-        const movie = await Movie.findOne({
+        if (mv == null) continue;
+        if (mv.Search == null) continue;
+        mv = mv.Search.filter(x => !!x.Poster).reduce((a, b) => (parseInt(a.Year) < parseInt(b.Year)) ? b : a)
+        if (!mv.Title || !mv.Poster) continue;
+        let movie = await Movie.findOne({
             imdbID: mv.imdbID
         });
 
         if (movie == null || !movie.poster) {
             mv = await api.FilmAPI.fetchFilm(mv.imdbID);
+            if (mv == null) continue;
             movie = new Movie({
                 imdbID: mv.imdbID || g.title,
                 name: mv.Title || g.title,
@@ -80,7 +81,8 @@ async function loadMovies(seances) {
                 movie = await movie.save();
                 //return console.log('movie:   ', movie, '//////');
             } catch (error) {
-                return console.log("error!!!!!!!")
+                console.log("error!!!!!!!")
+                continue;
             }
         }
         g.movie = movie;
@@ -121,10 +123,11 @@ async function b(y) {
     }
     for (const cinema of cinemas) {
         for (const seance of cinemaSeances[cinema]) {
-            console.log(seance);
-            if (seance.movieId === undefined) continue;
-            const movie = g.movie;
-            console.log(movie);
+            //console.log(seance);
+            //console.log(seance);
+            if (seance.movie === undefined) continue;
+            const movie = seance.movie;
+            //console.log(movie);
             for (const h of seance.times) {
                 if (movie.days === undefined) movie.days = [];
                 let day = movie.days.find(x => {
@@ -132,10 +135,8 @@ async function b(y) {
                 });
                 //console.log(day, movie.name);
                 if (day != undefined) {
-                    if (day.seances.find(async x => {
-                            //console.log('seance: ', x);
-                            if (x.hour == h) return true;
-                        }) == null) continue;
+                    console.log(day.seances.filter(x => x.hour == h), h, (!!day.seances.filter(x => x.hour == h).length), '\n\n');
+                    if (!!day.seances.filter(x => x.hour == h).length) continue;
                 }
                 let seance = await createNewSeance(h);
                 if (day == undefined)
@@ -160,14 +161,20 @@ async function b(y) {
         }
     }
 };
-//deleteAll();
-b(1);
-// b(2);
-// b(3);
-// b(4);
-// b(5);
-// b(6);
-// b(7);
+
+async function start() {
+    //deleteAll();
+    await b(1);
+    await b(2);
+    await b(3);
+    await b(4);
+    await b(5);
+    await b(6);
+    await b(7);
+    console.log("All is loaded!");
+}
+//start();
+
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => console.log(`Listening on port ${port}...`));

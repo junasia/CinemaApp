@@ -14,7 +14,7 @@ router.get('/:id', cors(), async (req, res) => {
 router.post('/:id', cors(), async (req, res) => {
 
   req.body.seats.forEach(async x => {
-    var reservation = new Reservation({
+    const reservation = new Reservation({
       name: req.body.name,
       seance: req.body.seance,
       mail: req.body.mail,
@@ -25,7 +25,7 @@ router.post('/:id', cors(), async (req, res) => {
     await reservation.save();
   });
 
-  var seance = await Seance.findById(req.params.id);
+  const seance = await Seance.findById(req.params.id);
   req.body.seats.forEach(x => {
     seance.seats[x.rowNumber][x.seatNumber] = false;
   });
