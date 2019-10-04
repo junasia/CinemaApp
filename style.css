@@ -44,9 +44,13 @@ img
   transition-duration: 1s;
 }
 
-figure:hover > img
+figure:hover
 {
   cursor: pointer;
+}
+
+figure:hover > img
+{
   transform: scale(0.9);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.5)
 }
