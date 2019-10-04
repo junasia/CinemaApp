@@ -13,11 +13,6 @@ class ProgramSettings extends Component {
         this.props.fetchCinemas();
     }
 
-    chooseCinema() {
-        console.log(this.selectRef);
-    }
-
-
     render() {
         return (
         <div className="jumbotron pt-3 mt-3 width-80">
@@ -32,7 +27,7 @@ class ProgramSettings extends Component {
                     </div>
                     <div className="col-sm-6">
                         <label for="inputCinema">Cinema</label>
-                        <select ref={this.selectRef} id="inputCinema" className="form-control" onChange={this.callThis}>
+                        <select id="inputCinema" className="form-control" onChange={this.callThis}>
                             {this.renderCinemas()}
                         </select>
                     </div>
