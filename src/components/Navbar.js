@@ -29,6 +29,7 @@ const Navbar = () => {
             <Link to="/"> To Program</Link>
             <Link to="/reservation"> To Reservation</Link>
         </div>
+        
     );
 };
 
