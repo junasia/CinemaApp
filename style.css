@@ -41,6 +41,7 @@ img
 
 figure:hover > img
 {
+  cursor: pointer;
   transform: scale(0.9);
   box-shadow: 0 1rem 3rem rgba(0,0,0,.5)
 }
