@@ -5,21 +5,21 @@ import { connect } from 'react-redux';
 import { fetchFilms } from '../../actions';
 
 class FilmList extends React.Component {
-    // componentDidMount() {
-    //     this.props.fetchFilms('5d93af0a4d62591ddcfa0f4a');
-    // }
-
-    async componentDidUpdate() {
-        await this.props.fetchFilms(this.props.cinema);
-        console.log("AKTUALIZACJA !!!",this.props)
+    componentDidMount() {
+        this.props.fetchFilms(this.props.cinema);
     }
+
+    // async componentDidUpdate() {
+    //     await this.props.fetchFilms(this.props.cinema);
+    //     console.log("AKTUALIZACJA !!!",this.props)
+    // }
 
     render() {
         return <ul className="list-group list-group-flush width-80">{this.renderList()}</ul>;
     }
 
     renderList() {
-        console.log("Wywolano renderList");
+        //console.log('Wywolano renderList');
         if (!this.props.films) return <div />;
         return this.props.films.map(x => {
             return <Film key={x.movie._id} film={x} />;
@@ -28,7 +28,7 @@ class FilmList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    return { films: state.films,cinema: state.cinema };
+    return { films: state.films, cinema: state.cinema };
 };
 
 export default connect(
