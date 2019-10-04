@@ -65,6 +65,16 @@ export const fetchCinemas = () => async dispatch => {
 // })
 
 export const saveCinema = id => dispatch => {
-    // if(!id) return null;
+     if(!id) return null;
     dispatch({ type: 'SAVE_CINEMA', payload: id });
 };
+
+export const reserveSeat = id => dispatch => {
+    if(!id) return null;
+    dispatch({type: 'RESERVE_SEAT', payload: id});
+}
+
+export const cancelReserve = id => dispatch => {
+    if(!id) return null;
+    dispatch({type: 'CANCEL_RESERVE', payload: id});
+}
