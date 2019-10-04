@@ -39,7 +39,7 @@ figure
   text-align: center;
 }
 
-img
+figure > img
 {
   transition-duration: 1s;
 }
