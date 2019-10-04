@@ -15,7 +15,7 @@ export const fetchFilms = (id, clearCache) => async dispatch => {
 const _fetchFilms = _.memoize(async (id, dispatch) => {
     const response = await heroku.get('cinemas/' + id);
 
-//     let array = Array.from(new Set(response.data.map(x => x.movie)));
+    let array = Array.from(new Set(response.data.map(x => x.movie)));
 
     const movies = await Promise.all(
         array.map(async movieId => {
@@ -26,8 +26,8 @@ const _fetchFilms = _.memoize(async (id, dispatch) => {
         })
     );
 
-//     dispatch({ type: 'FETCH_FILMS', payload: movies });
-// });
+    dispatch({ type: 'FETCH_FILMS', payload: movies });
+});
 
 // export const fetchFilms = id => async dispatch => {
 //     const response = await heroku.get('cinemas/' + id);
