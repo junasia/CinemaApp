@@ -1,27 +1,44 @@
-# CinemaApp
-To są informacje, którymi możemy rozdysponować.
-    "Title":"The Lion King"
-    "Year":"2019"
-    "Rated":"PG"
-    "Released":"19 Jul 2019"
-    "Runtime":"118 min"
-    "Genre":"Animation, Adventure, Drama, Family, Musical"
-    "Poster":"https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg"
-    "Director":"Jon Favreau"
-    "Writer":"Jeff Nathanson (screenplay by), Brenda Chapman (story), Irene Mecchi (characters), Jonathan Roberts (characters), Linda Woolverton (characters)"
-    "Actors":"Chiwetel Ejiofor, John Oliver, James Earl Jones, John Kani"
-    "Plot":"After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery."
-    "Language":"English"
-    "Country":"USA"
-    "Awards":"N/A"
-    "Ratings":[{"Source":"Internet Movie Database","Value":"7.1/10"},{"Source":"Rotten Tomatoes","Value":"53%"},{"Source":"Metacritic","Value":"55/100"}]
-    "Metascore":"55"
-    "imdbRating":"7.1"
-    "imdbVotes":"102,621"
-    "imdbID":"tt6105098"
-    "Type":"movie"
-    "DVD":"N/A"
-    "BoxOffice":"N/A"
-    "Production":"Walt Disney Pictures"
+# Cinema App
+This app allow to book see films which are being played in cinemas, read more about them as well as book seats. Reservation confirmation is sent to provided email.
 
-    no i godziny seansów
+## Table of Contents
+- [NPM packages and versions](#npm-packages-and-versions)
+- [How to use](#how-to-open)
+- [Usage](#usage)
+  * [Program](#program)
+  * [Now playing](#now-playing)
+  * [Film description](#film-description)
+  * [Booking seats](#booking-seats)
+  * [Prices](#prices)
+
+## NPM packages and versions
+- [config:](https://www.npmjs.com/package/config) 3.2.2
+- [cors:](https://www.npmjs.com/package/cors) 2.8.5
+- [express:](https://www.npmjs.com/package/express) 4.17.1
+- [express-cache-control:](https://www.npmjs.com/package/express-cache-control) 1.0.2
+- [express-cache-controller](https://www.npmjs.com/package/express-cache-controller): 1.1.0
+- [joi:](https://www.npmjs.com/package/joi) 14.3.1
+- [json-aggregate:](https://www.npmjs.com/package/json-aggregate) 0.1.0
+- [mongoose:](https://www.npmjs.com/package/mongoose) 5.7.1
+- [node-fetch:](https://www.npmjs.com/package/node-fetch) 2.6.0
+- [node-schedule:](https://www.npmjs.com/package/node-schedule) 1.3.2
+- [winston:](https://www.npmjs.com/package/winston) 3.2.1
+
+## How to open
+Link to application: https://junasia.github.io/CinemaApp/
+
+## Usage
+### Program
+Check program for your cinema in particular day.
+
+### Now playing
+Check what is on screen in that week.
+
+### Film description
+Read more about film.
+
+### Booking seats
+Book seat for chosen film.
+
+### Prices
+Check out current prices.
