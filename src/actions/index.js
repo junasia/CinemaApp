@@ -71,3 +71,13 @@ export const saveDate = date => dispatch => {
     d.setHours(0, 0, 0, 0);
     dispatch({ type: 'SAVE_DATE', payload: d });
 };
+
+export const reserveSeat = id => dispatch => {
+    if (!id) return null;
+    dispatch({ type: 'RESERVE_SEAT', payload: id });
+};
+
+export const cancelReserve = id => dispatch => {
+    if (!id) return null;
+    dispatch({ type: 'CANCEL_RESERVE', payload: id });
+};

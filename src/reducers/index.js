@@ -4,11 +4,13 @@ import filmReducer from './filmReducer';
 import cinemasReducer from './cinemasReducer';
 import cinemaReducer from './cinemaReducer';
 import dateReducer from './dateReducer';
+import seatsReducer from './seatsReducer';
 
 export default combineReducers({
     films: filmsReducer,
     film: filmReducer,
     cinemas: cinemasReducer,
     cinema: cinemaReducer,
-    date: dateReducer
+    date: dateReducer,
+    reservedSeats: seatsReducer
 });
