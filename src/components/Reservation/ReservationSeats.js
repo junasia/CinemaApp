@@ -101,17 +101,16 @@ class ReservationSeats extends Component {
                                 <button onClick={this.logSeats} type="button" className="btn btn-success btn-lg">
                                     CHECK PROPS
                                 </button>
-                                <a className="btn btn-warning" href="index.html" role="button">
+                                <a className="btn btn-warning" href="/" role="button">
                                     Back
                                 </a>
-                                <a className="btn btn-primary" href="personal_info.html" role="button">
+                                <Link className="btn btn-primary" to="/form" role="button">
                                     Next
-                                </a>
+                                </Link>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <Link to="/form">To Form</Link>
             </div>
         );
     }
