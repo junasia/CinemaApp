@@ -3,53 +3,35 @@ import omdb from '../apis/omdb';
 import heroku from '../apis/heroku';
 
 export const fetchFilms = (id, clearCache) => async dispatch => {
-    //console.log('cache: ', _fetchFilms.cache, clearCache);
-    if (clearCache === true) {
-        //console.log(' if cache: ', _fetchFilms.cache);
-        _fetchFilms.cache = new _.memoize.Cache();
-        //console.log('cache if: ', _fetchFilms.cache);
-    }
+    if (clearCache === true) _fetchFilms.cache = new _.memoize.Cache();
+
     return _fetchFilms(id, dispatch);
 };
 
 const _fetchFilms = _.memoize(async (id, dispatch) => {
-    const response = await heroku.get('cinemas/' + id);
+    let response;
+    try {
+        response = await heroku.get('cinemas/' + id);
+    } catch (error) {
+        console.log('fetchFilms action error: ', error);
+    }
 
-    let array = Array.from(new Set(response.data.map(x => x.movie)));
+    const films = response.data.movies;
 
-    const movies = await Promise.all(
-        array.map(async movieId => {
-            //console.log('WEJSCIE DO PROMISE ALL');
-            const hours = response.data.filter(h => h.movie === movieId);
-            const movie = await heroku.get('movies/' + movieId);
-            return { movie: movie.data[0], hours: hours.map(x => _.pick(x, ['hour', 'id', 'day'])) };
-        })
-    );
-
-    dispatch({ type: 'FETCH_FILMS', payload: movies });
+    dispatch({ type: 'FETCH_FILMS', payload: films });
 });
-
-// export const fetchFilms = id => async dispatch => {
-//     const response = await heroku.get('cinemas/' + id);
-
-//         let array = Array.from(new Set(response.data.map(x => x.movie)));
-
-//         const movies = await Promise.all(
-//             array.map(async movieId => {
-//                 console.log("WEJSCIE DO PROMISE ALL");
-//                 const hours = response.data.filter(h => h.movie === movieId);
-//                 const movie = await heroku.get('movies/' + movieId);
-//                 return { movie: movie.data[0], hours: hours.map(x => _.pick(x, ['hour', 'id', 'day'])) };
-//             })
-//         );
-
-//         dispatch({ type: 'FETCH_FILMS', payload: movies });
-// }
 
 export const fetchFilm = id => async dispatch => _fetchFilm(id, dispatch);
 const _fetchFilm = _.memoize(async (id, dispatch) => {
     if (!id) return null;
-    const response = await omdb.get('', { params: { i: id } });
+
+    let response;
+    try {
+        response = await omdb.get('', { params: { i: id } });
+    } catch (error) {
+        console.log('fetchFilm action error: ', error);
+    }
+
     dispatch({ type: 'FETCH_FILM', payload: response.data });
 });
 

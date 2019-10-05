@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from 'axios';
 import Film from './Film';
 import { connect } from 'react-redux';
 import { fetchFilms } from '../../actions';
@@ -9,20 +8,15 @@ class FilmList extends React.Component {
         this.props.fetchFilms(this.props.cinema);
     }
 
-    // async componentDidUpdate() {
-    //     await this.props.fetchFilms(this.props.cinema);
-    //     console.log("AKTUALIZACJA !!!",this.props)
-    // }
-
     render() {
         return <ul className="list-group list-group-flush width-80">{this.renderList()}</ul>;
     }
 
     renderList() {
-        //console.log('Wywolano renderList');
         if (!this.props.films) return <div />;
+        console.log('fff: ', this.props.films);
         return this.props.films.map(x => {
-            return <Film key={x.movie._id} film={x} />;
+            return <Film key={x.imdbID} film={x} />;
         });
     }
 }
