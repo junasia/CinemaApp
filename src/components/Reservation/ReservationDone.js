@@ -3,7 +3,7 @@ import React from 'react';
 const ReservationDone = () => {
     return (
         <div>
-            <container className="d-flex flex-column align-items-center">
+            <div className="d-flex flex-column align-items-center">
                 <div className="jumbotron pt-3 mt-3 width-80">
                     <h1 className="display-4">Success!</h1>
                     <p className="lead">
@@ -44,7 +44,7 @@ const ReservationDone = () => {
                         </a>
                     </div>
                 </div>
-            </container>
+            </div>
         </div>
     );
 };

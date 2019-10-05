@@ -7,6 +7,10 @@ body {
     position: relative;
 }
 
+body > container {
+    min-height: calc(100vh - 56px);
+}
+
 .width-80 {
     width: 80vw;
 }
@@ -29,8 +33,12 @@ figure {
     text-align: center;
 }
 
-img {
+figure > img {
     transition-duration: 1s;
+}
+
+figure:hover {
+    cursor: pointer;
 }
 
 figure:hover > img {

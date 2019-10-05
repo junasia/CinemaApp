@@ -9,6 +9,9 @@ const App = () => {
         <HashRouter>
             <Navbar />
             <Routes />
+            <footer className="foot bg-secondary" style={{ position: 'fixed', bottom: '0' }}>
+                <p className="m-0">{'\u00A9 wiatrgonifale'}</p>
+            </footer>
         </HashRouter>
     );
 };
