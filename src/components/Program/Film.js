@@ -17,20 +17,30 @@ const Film = ({ film }) => {
                             {film.genre} | {film.runtime}
                         </small>
                     </p>
-                    <div>
-                        {console.log('films: ', film)}
-                        {film.days[0].seances.map(x => {
-                            return (
-                                <Link to="/reservation" key={x._id} className="btn btn-primary btn-sm mb-1 mr-1">
-                                    {x.hour}
-                                </Link>
-                            );
-                        })}
-                    </div>
+                    <div>{renderHours(film)}</div>
                 </div>
             </div>
         </li>
     );
 };
+
+function renderHours(film) {
+    if (film.day)
+        return film.day.seances.map(x => {
+            return (
+                <Link to="/reservation" key={x._id} className="btn btn-primary btn-sm mb-1 mr-1">
+                    {x.hour}
+                </Link>
+            );
+        });
+    else
+        return film.days[0].seances.map(x => {
+            return (
+                <Link to="/reservation" key={x._id} className="btn btn-primary btn-sm mb-1 mr-1">
+                    {x.hour}
+                </Link>
+            );
+        });
+}
 
 export default Film;

@@ -14,7 +14,6 @@ class FilmList extends React.Component {
 
     renderList() {
         if (!this.props.films) return <div />;
-        console.log('fff: ', this.props.films);
         return this.props.films.map(x => {
             return <Film key={x.imdbID} film={x} />;
         });

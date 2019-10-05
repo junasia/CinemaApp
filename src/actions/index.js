@@ -16,7 +16,15 @@ const _fetchFilms = _.memoize(async (id, dispatch) => {
         console.log('fetchFilms action error: ', error);
     }
 
-    const films = response.data.movies;
+    let films = response.data.movies.map(x => {
+        x.days = x.days.map(y => {
+            y.date = y.date.split('T')[0];
+            y.date = new Date(y.date);
+            y.date.setHours(0, 0, 0, 0);
+            return y;
+        });
+        return x;
+    });
 
     dispatch({ type: 'FETCH_FILMS', payload: films });
 });
@@ -47,6 +55,13 @@ export const fetchCinemas = () => async dispatch => {
 // })
 
 export const saveCinema = id => dispatch => {
-    // if(!id) return null;
+    if (!id) return null;
     dispatch({ type: 'SAVE_CINEMA', payload: id });
+};
+
+export const saveDate = date => dispatch => {
+    if (!date) return null;
+    let d = new Date(date);
+    d.setHours(0, 0, 0, 0);
+    dispatch({ type: 'SAVE_DATE', payload: d });
 };
