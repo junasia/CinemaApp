@@ -4,7 +4,7 @@ import filmReducer from './filmReducer';
 import cinemasReducer from './cinemasReducer';
 import cinemaReducer from './cinemaReducer';
 import dateReducer from './dateReducer';
-import seatsReducer from './seatsReducer';
+import reservationReducer from './reservationReducer';
 
 export default combineReducers({
     films: filmsReducer,
@@ -12,5 +12,5 @@ export default combineReducers({
     cinemas: cinemasReducer,
     cinema: cinemaReducer,
     date: dateReducer,
-    reservedSeats: seatsReducer
+    reservation: reservationReducer
 });
