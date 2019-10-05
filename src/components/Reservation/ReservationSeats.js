@@ -20,6 +20,9 @@ class ReservationSeats extends Component {
         return seat[0] + seat[2] + seat[3];
     }
 
+    logSeats = () => {
+        console.log(this.props.reservedSeats);
+    }
 
     renderSeats() {
         let seatsArr = []
@@ -48,7 +51,7 @@ class ReservationSeats extends Component {
                                     <div className="screen text-center"><small>SCREEN</small></div>
                                     {this.renderSeats()}
                                     <div className="d-flex justify-content-around w-100 mt-5">
-                                    <button type="button" className="btn btn-success btn-lg">CHECK PROPS</button>
+                                    <button onClick={this.logSeats} type="button" className="btn btn-success btn-lg">CHECK PROPS</button>
                                         <a className="btn btn-warning" href="index.html" role="button">Back</a>
                                         <a  className="btn btn-primary" href="personal_info.html" role="button">Next</a>
                                     </div>
