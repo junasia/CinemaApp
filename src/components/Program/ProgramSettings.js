@@ -46,7 +46,7 @@ class ProgramSettings extends Component {
 
     renderCinemas() {
         if (!this.props.cinemas) return <div />;
-        console.log('cinemas', this.props.cinemas);
+        //console.log('cinemas', this.props.cinemas);
         return this.props.cinemas.map(cinema => {
             return (
                 <option value={cinema.id} key={cinema.id}>
