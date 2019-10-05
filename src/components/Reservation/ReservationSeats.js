@@ -21,7 +21,7 @@ class ReservationSeats extends Component {
     }
 
     logSeats = () => {
-        console.log(this.props.reservedSeats);
+        console.log(this.props);
     }
 
     renderSeats() {
