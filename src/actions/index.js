@@ -81,3 +81,10 @@ export const cancelReserve = id => dispatch => {
     if (!id) return null;
     dispatch({ type: 'CANCEL_RESERVE', payload: id });
 };
+
+export const fetchSeats = id => async dispatch => {
+    if (!id) return null;
+    const response = await heroku.get('seances/' + id);
+    if (!response || !response.data) return null;
+    dispatch({ type: 'FETCH_SEATS', payload: { id, seats: response.data } });
+};

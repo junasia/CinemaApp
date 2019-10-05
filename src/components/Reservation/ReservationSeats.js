@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 import { reserveSeat, cancelReserve } from '../../actions';
 
 class ReservationSeats extends Component {
-    callThis = e => {
-        if (this.props.reservedSeats.includes(e.target.value)) {
+    clickSeatButton = e => {
+        if (this.props.reservation.reservations.includes(e.target.value)) {
+            console.log('cancle: ', e.target.value);
             this.props.cancelReserve(e.target.value);
-        }
-        this.props.reserveSeat(e.target.value);
+        } else this.props.reserveSeat(e.target.value);
     };
 
     renderNumberOfSeat = seat => {
@@ -19,37 +19,37 @@ class ReservationSeats extends Component {
     };
 
     logSeats = () => {
-        console.log(this.props);
+        console.log(this.props, this.props.reservation);
     };
 
-    getSeatClassName = seat => {
-        return 'btn ' + this.props.reservedSeats.includes(seat) ? 'btn-primary' : 'btn-success' + ' btn-sm';
+    getSeatClassName = (seat, seatId) => {
+        let className;
+        if (this.props.reservation.reservations.includes(seatId)) className = 'btn btn-primary btn-sm';
+        else className = 'btn ' + (seat ? 'btn-success' : 'btn-danger') + ' btn-sm';
+        return className;
     };
 
     renderSeats() {
-        let seatsArr = [];
-        for (let i = 65; i < 74; i++) {
-            for (let j = 1; j < 11; j++) {
-                var chr = String.fromCharCode(i) + '/' + j;
-                seatsArr.push(chr);
+        if (!this.props.reservation.seats.length) return <div />;
+        let seatsArr = this.props.reservation.seats;
+        let buttons = [];
+        for (const row in seatsArr) {
+            for (const seat in seatsArr[row]) {
+                const seatId = row + '/' + seat;
+                buttons.push(
+                    <button
+                        onClick={this.clickSeatButton}
+                        value={seatId}
+                        type="button"
+                        id={seatId}
+                        key={seatId}
+                        className={this.getSeatClassName(seatsArr[row][seat], seatId)}
+                    >
+                        {seatId}
+                    </button>
+                );
             }
         }
-        console.log('seatsArr: ', seatsArr, this.props.reservedSeats);
-        let buttons = seatsArr.map(seat => {
-            return (
-                <button
-                    onClick={this.callThis}
-                    value={seat}
-                    type="button"
-                    id={seat}
-                    key={seat}
-                    className={this.getSeatClassName(seat)}
-                    //style={{ gridArea: seat, fontSize: '11px' }}
-                >
-                    {this.renderNumberOfSeat(seat)}
-                </button>
-            );
-        });
         return <div className="seats-container mt-4">{buttons}</div>;
     }
 
@@ -118,7 +118,7 @@ class ReservationSeats extends Component {
 }
 
 const mapStateToProps = state => {
-    return { reservedSeats: state.reservedSeats };
+    return { reservation: state.reservation };
 };
 
 export default connect(

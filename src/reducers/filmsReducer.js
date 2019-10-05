@@ -3,8 +3,6 @@ export default (state = [], action) => {
         case 'FETCH_FILMS':
             return action.payload;
         case 'SAVE_DATE':
-            console.log('payload: ', action.payload);
-            //let s = [...state]
             let s = [...state].map(x => {
                 x.day = x.days.find(x => {
                     let d = new Date(action.payload);
@@ -13,7 +11,6 @@ export default (state = [], action) => {
                 });
                 return x;
             });
-            console.log('state: ', s);
             return s;
         default:
             return state;
