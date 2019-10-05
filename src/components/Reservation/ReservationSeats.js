@@ -40,6 +40,28 @@ class ReservationSeats extends Component {
         return (
                     <div>
                         <container class="d-flex flex-column align-items-center position-relative pb-5 pt-4">
+                        <div class="jumbotron pt-3 mt-3 width-80">
+                            <h1 class="display-4">Choose seat</h1>
+                            <p class="lead">Find seat, which is the most suitable for you and click on it.</p>
+                            <hr class="my-4" />
+                            <h5>Title: The Lion King</h5>
+                                <form>
+                                    <div class="form-row">
+                                        <div class="col-sm-6">
+                                            <label for="inputDate">Date</label>
+                                            <input type="date" class="form-control" id="inputDate" value="2019-10-01" min="2019-10-01" max="2019-10-08"/>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label for="inputTime">Time</label>
+                                            <select id="inputTime" class="form-control">
+                                                <option selected>13:00</option>
+                                                <option>15:00</option>
+                                                <option>17:30</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>  
+                     </div>
                             <ul className="list-group list-group-flush width-80">
                                 <li className="list-group-item d-flex justify-content-around">
                                         <span className="badge badge-secondary">Not available</span>
