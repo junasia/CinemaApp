@@ -37,7 +37,7 @@ const ReservationDone = () => {
                         </div>
                     </div>
                     <div className="d-flex justify-content-around">
-                        <a href="/">
+                        <a href="#">
                             <button type="button" className="btn btn-success mt-5">
                                 Home
                             </button>
