@@ -2,11 +2,11 @@ const fetch = require('node-fetch')
 
 const ProgramAPI = {
     _connectionLink: "https://api.cinelist.co.uk/get/times/cinema/",
-    getConnectionLinkFromInput: function(id, input) {
+    getConnectionLinkFromInput: function (id, input) {
         return this._connectionLink + id + '?day=' + input
     },
-    
-    fetchProgram: async function(id, input = '') {
+
+    fetchProgram: async function (id, input = '') {
         if (isNaN(input) || input > 7 || input < 1) return [];
         let conn = this.getConnectionLinkFromInput(id, input);
         let program = fetch(conn)
@@ -18,19 +18,45 @@ const ProgramAPI = {
 }
 
 const FilmAPI = {
-    _connectionLinks: "http://omdbapi.com/?apikey=144de458",
-    getConnectionLinkFromInput: function(input) {
-        return this._connectionLinks + '&t=' + input
+    _connectionLinks: "http://omdbapi.com/?apikey=bec23e11",
+    getConnectionLinkFromInput: function (input) {
+        return this._connectionLinks + '&i=' + input
     },
 
-    fetchFilm: async function(input = '') {
+    getConnectionLinkSearchFromInput: function (input) {
+        return this._connectionLinks + '&s=' + input
+    },
+
+    findFilm: async function (input = '') {
+        if (!input) return [];
+        let conn = this.getConnectionLinkSearchFromInput(input);
+        let film;
+        try {
+            film = await fetch(conn)
+                .then(response => response.json())
+                .then(data => data)
+                .catch(err => err);
+        } catch (error) {
+            console.log('error');
+            return null;
+        }
+        return film;
+    },
+
+    fetchFilm: async function (input = '') {
         if (!input) return [];
         let conn = this.getConnectionLinkFromInput(input);
-        let film = fetch(conn)
-            .then(response => response.json())
-            .then(data => data)
-            .catch(err => err);
-        return await film;
+        let film;
+        try {
+            film = await fetch(conn)
+                .then(response => response.json())
+                .then(data => data)
+                .catch(err => err);
+        } catch (error) {
+            console.log('error');
+            return null;
+        }
+        return film;
     }
 }
 

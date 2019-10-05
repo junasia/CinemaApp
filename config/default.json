@@ -1,4 +1,4 @@
 {
     "jwtPrivateKey": "",
-    "db": "mongodb+srv://wiatrgonifale:dvfn8P4qfVPEZQKV@cluster0-zuxho.azure.mongodb.net/test?retryWrites=true&w=majority"
+    "db": "mongodb+srv://wiatrgonifale:dvfn8P4qfVPEZQKV@cluster0-zuxho.azure.mongodb.net/cinema?retryWrites=true&w=majority"
 }
