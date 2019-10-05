@@ -9,7 +9,6 @@ export default (state = [], action) => {
                 x.day = x.days.find(x => {
                     let d = new Date(action.payload);
                     d.setHours(0, 0, 0, 0);
-                    console.log('date: ', x.date, d, new Date(x.date).getTime() === d.getTime());
                     return new Date(x.date).getTime() === d.getTime();
                 });
                 return x;

@@ -14,7 +14,7 @@ class ProgramSettings extends Component {
 
     componentDidMount() {
         this.props.fetchCinemas();
-        this.props.saveCinema(Date.now());
+        this.props.saveDate(Date.now());
     }
 
     dateToString(input, addDays) {

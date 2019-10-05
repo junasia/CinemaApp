@@ -23,10 +23,16 @@ const _fetchFilms = _.memoize(async (id, dispatch) => {
             y.date.setHours(0, 0, 0, 0);
             return y;
         });
+        x.day = x.days.find(x => {
+            let d = new Date(Date.now());
+            d.setHours(0, 0, 0, 0);
+            return new Date(x.date).getTime() === d.getTime();
+        });
         return x;
     });
 
     dispatch({ type: 'FETCH_FILMS', payload: films });
+    //dispatch({ type: 'SAVE_DATE', payload: new Date(Date.now) });
 });
 
 export const fetchFilm = id => async dispatch => _fetchFilm(id, dispatch);
