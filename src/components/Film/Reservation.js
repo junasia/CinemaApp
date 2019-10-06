@@ -49,7 +49,8 @@ class Reservation extends React.Component {
         );
     };
     clickButton = e => {
-        this.props.fetchSeats(e.target.id, this.props.film);
+        let film = this.props.films.find(x => x.imdbID === this.props.film.imdbID);
+        this.props.fetchSeats(e.target.id, film);
     };
 }
 
