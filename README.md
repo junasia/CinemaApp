@@ -1,5 +1,5 @@
 # Cinema App
-This app allow to book see films which are being played in cinemas, read more about them as well as book seats. Reservation confirmation is sent to provided email.
+This app allow to check which films are being played in cinemas, read more about them as well as book seats.
 
 ## Table of Contents
 - [NPM packages and versions](#npm-packages-and-versions)
