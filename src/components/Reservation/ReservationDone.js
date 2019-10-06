@@ -18,26 +18,20 @@ const ReservationDone = () => {
                             <p>The Lion King</p>
                         </div>
                         <div className="col-sm">
-                            <p className="font-weight-bold m-0" className="m-0">
-                                Date:
-                            </p>
+                            <p className="font-weight-bold m-0">Date:</p>
                             <p>02.10.2019</p>
                         </div>
                         <div className="col-sm">
-                            <p className="font-weight-bold m-0" className="m-0">
-                                Time:
-                            </p>
+                            <p className="font-weight-bold m-0">Time:</p>
                             <p>15:00</p>
                         </div>
                         <div className="col-sm">
-                            <p className="font-weight-bold m-0" className="m-0">
-                                Seats:
-                            </p>
+                            <p className="font-weight-bold m-0">Seats:</p>
                             <p>B2 B3</p>
                         </div>
                     </div>
                     <div className="d-flex justify-content-around">
-                        <a href="#">
+                        <a href="#/">
                             <button type="button" className="btn btn-success mt-5">
                                 Home
                             </button>

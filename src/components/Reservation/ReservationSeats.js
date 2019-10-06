@@ -1,14 +1,21 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { reserveSeat, cancelReserve } from '../../actions';
 
 class ReservationSeats extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { redirect: false };
+    }
+
     clickSeatButton = e => {
-        if (this.props.reservation.reservations.includes(e.target.value)) {
-            console.log('cancle: ', e.target.value);
-            this.props.cancelReserve(e.target.value);
-        } else this.props.reserveSeat(e.target.value);
+        console.log(e.target);
+        if (e.target.value === 'false') return;
+        if (this.props.reservation.reservations.includes(e.target.id)) {
+            this.props.cancelReserve(e.target.id);
+        } else this.props.reserveSeat(e.target.id);
+        console.log('cancle: ', this.props.reservation);
     };
 
     renderNumberOfSeat = seat => {
@@ -29,6 +36,12 @@ class ReservationSeats extends Component {
         return className;
     };
 
+    handleClickNext = e => {
+        if (this.props.reservation.reservations.length) {
+            this.setState({ redirect: true });
+        }
+    };
+
     renderSeats() {
         if (!this.props.reservation.seats.length) return <div />;
         let seatsArr = this.props.reservation.seats;
@@ -39,7 +52,7 @@ class ReservationSeats extends Component {
                 buttons.push(
                     <button
                         onClick={this.clickSeatButton}
-                        value={seatId}
+                        value={seatsArr[row][seat]}
                         type="button"
                         id={seatId}
                         key={seatId}
@@ -56,6 +69,7 @@ class ReservationSeats extends Component {
     render() {
         return (
             <div>
+                {this.state.redirect ? <Redirect push to="/form" /> : ''}
                 <div className="d-flex flex-column align-items-center position-relative pb-5 pt-4">
                     <div className="jumbotron pt-3 mt-3 width-80">
                         <h1 className="display-4">Choose seat</h1>
@@ -101,12 +115,12 @@ class ReservationSeats extends Component {
                                 <button onClick={this.logSeats} type="button" className="btn btn-success btn-lg">
                                     CHECK PROPS
                                 </button>
-                                <a className="btn btn-warning" href="#" role="button">
+                                <a className="btn btn-warning" href="#/" role="button">
                                     Back
                                 </a>
-                                <Link className="btn btn-primary" to="/form" role="button">
+                                <button className="btn btn-primary" onClick={this.handleClickNext}>
                                     Next
-                                </Link>
+                                </button>
                             </div>
                         </li>
                     </ul>

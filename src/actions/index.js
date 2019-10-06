@@ -54,12 +54,6 @@ export const fetchCinemas = () => async dispatch => {
     dispatch({ type: 'FETCH_CINEMAS', payload: response.data });
 };
 
-// export const fetchCinemas = () => async dispatch => _fetchCinemas(dispatch);
-// const _fetchCinemas = _.memoize(async (dispatch) => {
-//     const response = await heroku.get('cinemas/');
-//     dispatch({type: 'FETCH_CINEMAS',payload: response.data});
-// })
-
 export const saveCinema = id => dispatch => {
     if (!id) return null;
     dispatch({ type: 'SAVE_CINEMA', payload: id });
@@ -82,9 +76,17 @@ export const cancelReserve = id => dispatch => {
     dispatch({ type: 'CANCEL_RESERVE', payload: id });
 };
 
-export const fetchSeats = id => async dispatch => {
-    if (!id) return null;
+export const fetchSeats = (id, film) => async dispatch => {
+    if (!id || !film) return null;
     const response = await heroku.get('seances/' + id);
     if (!response || !response.data) return null;
-    dispatch({ type: 'FETCH_SEATS', payload: { id, seats: response.data } });
+    dispatch({ type: 'FETCH_SEATS', payload: { id, film, seats: response.data } });
+};
+
+export const postReservation = reservation => async dispatch => {
+    if (!reservation) return null;
+    const response = await heroku.post('seances/' + reservation.seance, reservation);
+    if (!response || !response.data) return null;
+    console.log(response);
+    //dispatch({ type: 'FETCH_SEATS', payload: { id, film, seats: response.data } });
 };

@@ -8,7 +8,13 @@ export default (state = { seats: [], reservations: [] }, action) => {
         case 'CANCEL_RESERVE':
             return { ...state, reservations: state.reservations.filter(id => id !== action.payload) };
         case 'FETCH_SEATS':
-            return { ...state, seance: action.payload.id, seats: action.payload.seats, reservations: [] };
+            return {
+                ...state,
+                seance: action.payload.id,
+                seats: action.payload.seats,
+                reservations: [],
+                film: action.payload.film
+            };
         default:
             return state;
     }

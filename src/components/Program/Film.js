@@ -52,7 +52,7 @@ class Film extends React.Component {
     };
 
     clickButton = e => {
-        this.props.fetchSeats(e.target.id);
+        this.props.fetchSeats(e.target.id, this.props.film);
     };
 }
 
