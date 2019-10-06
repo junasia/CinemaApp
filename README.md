@@ -37,7 +37,7 @@ Read film details.
 
 ### Booking seats
 Book seat for the film.
-![image](https://user-images.githubusercontent.com/53261107/66275463-190da900-e889-11e9-9c0f-f2a705bd9a4d.png)
+![image](https://user-images.githubusercontent.com/53261107/66275591-69393b00-e88a-11e9-9e67-cb4edf94d8f3.png)
 
 ### Prices
 Check out current prices.
