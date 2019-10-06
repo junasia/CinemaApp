@@ -135,7 +135,7 @@ async function b(y) {
                 });
                 //console.log(day, movie.name);
                 if (day != undefined) {
-                    console.log(day.seances.filter(x => x.hour == h), h, (!!day.seances.filter(x => x.hour == h).length), '\n\n');
+                    //console.log(day.seances.filter(x => x.hour == h), h, (!!day.seances.filter(x => x.hour == h).length), '\n\n');
                     if (!!day.seances.filter(x => x.hour == h).length) continue;
                 }
                 let seance = await createNewSeance(h);
@@ -163,7 +163,7 @@ async function b(y) {
 };
 
 async function start() {
-    //deleteAll();
+    deleteAll();
     await b(1);
     await b(2);
     await b(3);

@@ -13,17 +13,15 @@ router.get('/:id', cors(), async (req, res) => {
 
 router.post('/:id', cors(), async (req, res) => {
 
-  req.body.seats.forEach(async x => {
-    const reservation = new Reservation({
-      name: req.body.name,
-      seance: req.body.seance,
-      mail: req.body.mail,
-      phone: req.body.phone,
-      rowNumber: x.rowNumber,
-      seatNumber: x.seatNumber
-    });
-    await reservation.save();
+
+  const reservation = new Reservation({
+    name: req.body.name,
+    seance: req.body.seance,
+    mail: req.body.mail,
+    phone: req.body.phone,
+    seats: req.body.seats
   });
+  await reservation.save();
 
   const seance = await Seance.findById(req.params.id);
   req.body.seats.forEach(x => {
@@ -32,7 +30,7 @@ router.post('/:id', cors(), async (req, res) => {
   seance.markModified('seats');
   await seance.save();
 
-  //console.log(seance);
+  console.log(seance);
   res.send("Reservation complete");
 });
 
