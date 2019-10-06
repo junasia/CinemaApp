@@ -50,13 +50,13 @@ class Form extends React.Component {
         console.log(res);
         await this.props.postReservation(res);
         this.setState({ redirect: true });
-        event.preventDefault();
+        event.persist();
     };
 
     render() {
         return (
             <div>
-                {/* {this.state.redirect ? <Redirect push to="/done" /> : ''} */}
+                {this.state.redirect ? <Redirect push to="/done" /> : ''}
                 <ul className="list-group list-group-flush width-80">
                     <li className="list-group-item">
                         <form className="formReservation" id="formReservation" onSubmit={this.handleSubmit}>
