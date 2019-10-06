@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { reserveSeat, cancelReserve } from '../../actions';
+import { async } from 'q';
 
 class ReservationSeats extends Component {
     constructor(props) {
         super(props);
-        this.state = { redirect: false };
+        this.state = { redirect: null };
     }
 
     clickSeatButton = e => {
@@ -34,12 +35,20 @@ class ReservationSeats extends Component {
 
     handleClickNext = e => {
         if (this.props.reservation.reservations.length) {
-            this.setState({ redirect: true });
+            this.setState({ redirect: '/form' });
         }
     };
 
+    waitForSeanceData = async () => {
+        setTimeout(
+            (() => {
+                if (!this.props.reservation.seats.length) this.setState({ redirect: '#/' });
+            }).bind(this),
+            1000
+        );
+    };
+
     renderSeats() {
-        if (!this.props.reservation.seats.length) return <div />;
         let seatsArr = this.props.reservation.seats;
         let buttons = [];
         for (const row in seatsArr) {
@@ -63,9 +72,20 @@ class ReservationSeats extends Component {
     }
 
     render() {
+        if (!this.props.reservation.seats.length) {
+            this.waitForSeanceData();
+        }
         return (
             <div>
-                {this.state.redirect ? <Redirect push to="/form" /> : ''}
+                {this.state.redirect ? (
+                    this.state.redirect === '#/' ? (
+                        <meta httpEquiv="Refresh" content="0; url=#/" />
+                    ) : (
+                        <Redirect push to={this.state.redirect} />
+                    )
+                ) : (
+                    ''
+                )}
                 <div className="d-flex flex-column align-items-center position-relative pb-5 pt-4">
                     <div className="jumbotron pt-3 mt-3 width-80">
                         <h1 className="display-4">Choose seat</h1>
