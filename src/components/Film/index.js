@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchFilm } from '../../actions';
+import FilmInfo from './FilmInfo';
+import Reservation from './Reservation';
 
 class Film extends React.Component {
     componentDidMount() {
@@ -8,7 +10,20 @@ class Film extends React.Component {
     }
 
     render() {
-        return <div>{this.renderFilm()}</div>;
+        return (
+            <div>
+                <div className="d-flex flex-column align-items-center position-relative pb-5">
+                    <ul className="list-group list-group-flush mt-3 width-80">
+                        <li className="list-group-item">
+                            <div className="media row">
+                                <FilmInfo />
+                                <Reservation />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        );
     }
 
     renderFilm() {

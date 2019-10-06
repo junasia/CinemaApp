@@ -41,7 +41,7 @@ const _fetchFilm = _.memoize(async (id, dispatch) => {
 
     let response;
     try {
-        response = await omdb.get('', { params: { i: id } });
+        response = await omdb.get('', { params: { i: id, plot: 'full' } });
     } catch (error) {
         console.log('fetchFilm action error: ', error);
     }
