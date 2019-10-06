@@ -42,50 +42,55 @@
         </div>  
     </nav>
     <container class="d-flex flex-column align-items-center position-relative pb-5">
-        <div class="jumbotron pt-3 mt-3 width-80">
-            <h1 class="display-4">Now in cinemas!</h1>
-            <p class="lead">Check out what we are playing this week and find the best movie for you!</p>
-            <hr class="my-4">
-            <form>
-                <div class="form-row">
-                    <div class="col">
-                        <label for="inputCinema">Cinema</label>
-                        <select id="inputCinema" class="form-control">
-                            <option selected>First cinema</option>
-                            <option>Second cinema</option>
-                            <option>Third cinema</option>
-                        </select>
+        <ul class="list-group list-group-flush width-80">
+            <li id="carouselContainer" class="list-group-item d-flex justify-content-around flex-wrap">
+                
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="row">
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="1 slide"></div>
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="2 slide"></div>
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="3 slide"></div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="row">
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="4 slide"></div>
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="5 slide"></div>
+                                    <div class="col-sm"><img class="d-block w-100" src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" alt="6 slide"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail img-fluid" alt="Poster">
+                    </div>
+                    <div class="col-sm-10 position-relative d-flex flex-column justify-content-between">
+                        <div>  
+                            <a href="film_description.html" class="card-link">
+                                <h4 class="mb-1">The Lion King</h4>
+                            </a>
+                            <small class="text-muted">Animation, Adventure, Drama, Family, Musical | 118 min</small>
+                            <p class="mt-2 mb-3">After the murder of his father, a young lion prince flees his kingdom only to learn the true meaning of responsibility and bravery.</p>
+                        </div>
+                        <div>
+                            <a href="#" class="btn btn-primary btn-sm mb-1 mr-1">13:00</a>
+                            <a href="#" class="btn btn-primary btn-sm mb-1 mr-1">15:00</a>
+                            <a href="#" class="btn btn-primary btn-sm mb-1 mr-1">13:00</a>
+                            <a href="#" class="btn btn-primary btn-sm mb-1 mr-1">15:00</a>
+                        </div>
                     </div>
                 </div>
-            </form>
-        </div>
-        <ul class="list-group list-group-flush width-80">
-            <li class="list-group-item d-flex justify-content-around flex-wrap">
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
-                
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
-                <figure class="m-2">
-                    <img src="https://m.media-amazon.com/images/M/MV5BMjIwMjE1Nzc4NV5BMl5BanBnXkFtZTgwNDg4OTA1NzM@._V1_SX300.jpg" class="img-thumbnail" alt="Poster"/>
-                    <figcaption class="text-center"><h6>The Lion King</h6></figcaption>
-                </figure>
             </li>
         </ul>      
         <footer class="foot bg-secondary">
