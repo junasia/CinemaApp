@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchFilm } from '../../actions';
 
 class FilmInfo extends React.Component {
     render() {

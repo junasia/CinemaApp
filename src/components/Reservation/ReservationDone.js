@@ -37,7 +37,7 @@ class ReservationDone extends React.Component {
                                 <p>
                                     {
                                         this.props.reservation.film.day.seances.find(
-                                            x => x._id == this.props.reservation.seance
+                                            x => x._id === this.props.reservation.seance
                                         ).hour
                                     }
                                 </p>

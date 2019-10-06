@@ -19,7 +19,7 @@ class Reservation extends React.Component {
     renderReservationBox = () => {
         let film = this.props.films ? this.props.films.find(x => x.imdbID === this.props.film.imdbID) : null;
         if (!film) return <div>Brak seansów</div>;
-        let seances = film.day.seances.map(x => {
+        let seances = film.day.seances.slice(0, 7).map(x => {
             return (
                 <li key={x._id}>
                     <Link
