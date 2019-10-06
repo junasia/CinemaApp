@@ -9,6 +9,17 @@ const Navbar = () => {
                     Cinema Town <small className="navbar-band">the best cinemas</small>
                 </span>
             </Link>
+            <button
+                className="navbar-toggler"
+                type="button"
+                datatoggle="collapse"
+                datatarget="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span className="navbar-toggler-icon"></span>
+            </button>
             <div className="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
