@@ -28,11 +28,11 @@ Link to application: https://junasia.github.io/CinemaApp/
 
 ## Usage
 ### Program
-Check program for your cinema in particular day. Above it, you will find our recommendations.
+Check program for your cinema in particular day. Above it, you can find our recommendations.
 ![image](https://user-images.githubusercontent.com/53261107/66275361-26766380-e888-11e9-93ad-b5712f33e397.png)
 
 ### Film description
-Read more about film.
+Read film details.
 ![image](https://user-images.githubusercontent.com/53261107/66275421-8ff67200-e888-11e9-8b36-4f4b4582b826.png)
 
 ### Booking seats
