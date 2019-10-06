@@ -42,3 +42,4 @@ Book seat for chosen film.
 
 ### Prices
 Check out current prices.
+![image](https://user-images.githubusercontent.com/53261107/66275336-d3041580-e887-11e9-8c9f-f42c06407524.png)
