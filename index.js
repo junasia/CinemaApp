@@ -12,10 +12,10 @@ const Movie = require('./models/movie');
 const Seance = require('./models/seance');
 const Reservation = require('./models/reservation');
 
+app.use(cors());
 require('./startup/routes')(app);
 require('./startup/db')();
 
-app.use(cors());
 app.use(cacheControl());
 app.use(bodyParser.json());
 mongoose.set('useCreateIndex', true);
