@@ -41,6 +41,7 @@ class Film extends React.Component {
                         to="/reservation"
                         key={x._id}
                         id={x._id}
+                        value={x._id}
                         onClick={this.clickButton}
                         className="btn btn-primary btn-sm mb-1 mr-1"
                     >
@@ -56,7 +57,11 @@ class Film extends React.Component {
     };
 }
 
+const mapStateToProps = state => {
+    return { films: state.films };
+};
+
 export default connect(
-    null,
+    mapStateToProps,
     { fetchSeats }
 )(Film);
