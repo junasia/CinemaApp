@@ -44,6 +44,12 @@ figure
   background-color: black;
 }
 
+.carousel
+{
+  width: 90%;
+  height: 100%;
+}
+
 .carousel img
 {
   transition-duration: 1s;
@@ -58,12 +64,12 @@ figure
 
 .carousel-control-prev
 {
-  left: -57px;
+  left: -8vw;
 }
 
 .carousel-control-next
 {
-  right: -57px;
+  right: -8vw;
 }
 
 .seats-container
