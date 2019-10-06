@@ -1,4 +1,7 @@
-export default (state = { seats: [], reservations: [] }, action) => {
+export default (
+    state = { seats: [], reservations: [], postedReservation: { reservation: null, response: null } },
+    action
+) => {
     switch (action.type) {
         case 'RESERVE_SEAT':
             let s = { ...state };
@@ -13,8 +16,18 @@ export default (state = { seats: [], reservations: [] }, action) => {
                 seance: action.payload.id,
                 seats: action.payload.seats,
                 reservations: [],
+                postedReservation: { reservation: null, response: null },
                 film: action.payload.film
             };
+        case 'POST_RESERVATION': {
+            return {
+                ...state,
+                postedReservation: {
+                    reservation: action.payload.reservation,
+                    response: action.payload.response
+                }
+            };
+        }
         default:
             return state;
     }

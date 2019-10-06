@@ -58,7 +58,7 @@ class ReservationSeats extends Component {
                         key={seatId}
                         className={this.getSeatClassName(seatsArr[row][seat], seatId)}
                     >
-                        {seatId}
+                        {String.fromCharCode('A'.charCodeAt() + parseInt(row)) + (parseInt(seat) + 1)}
                     </button>
                 );
             }

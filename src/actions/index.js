@@ -87,6 +87,5 @@ export const postReservation = reservation => async dispatch => {
     if (!reservation) return null;
     const response = await heroku.post('seances/' + reservation.seance, reservation);
     if (!response || !response.data) return null;
-    console.log(response);
-    //dispatch({ type: 'FETCH_SEATS', payload: { id, film, seats: response.data } });
+    dispatch({ type: 'POST_RESERVATION', payload: { reservation, response } });
 };

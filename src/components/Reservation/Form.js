@@ -48,8 +48,7 @@ class Form extends React.Component {
             })
         };
         console.log(res);
-        await this.props.postReservation(res);
-        this.setState({ redirect: true });
+        if ((await this.props.postReservation(res)) !== null) this.setState({ redirect: true });
         event.persist();
     };
 
