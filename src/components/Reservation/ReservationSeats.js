@@ -75,8 +75,9 @@ class ReservationSeats extends Component {
                         <h1 className="display-4">Choose seat</h1>
                         <p className="lead">Find seat, which is the most suitable for you and click on it.</p>
                         <hr className="my-4" />
-                        <h5>Title: The Lion King</h5>
-                        <form>
+                        <h3>Title: </h3>
+                        <h5>{this.props.reservation.film ? this.props.reservation.film.name : null}</h5>
+                        {/* <form>
                             <div className="form-row">
                                 <div className="col-sm-6">
                                     <label htmlFor="inputDate">Date</label>
@@ -98,7 +99,7 @@ class ReservationSeats extends Component {
                                     </select>
                                 </div>
                             </div>
-                        </form>
+                        </form> */}
                     </div>
                     <ul className="list-group list-group-flush width-80">
                         <li className="list-group-item d-flex justify-content-around">
