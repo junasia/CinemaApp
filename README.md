@@ -6,7 +6,6 @@ This app allow to check which films are being played in cinemas, read more about
 - [How to use](#how-to-open)
 - [Usage](#usage)
   * [Program](#program)
-  * [Now playing](#now-playing)
   * [Film description](#film-description)
   * [Booking seats](#booking-seats)
   * [Prices](#prices)
@@ -32,11 +31,9 @@ Link to application: https://junasia.github.io/CinemaApp/
 Check program for your cinema in particular day. Above it, you will find our recommendations.
 ![image](https://user-images.githubusercontent.com/53261107/66275361-26766380-e888-11e9-93ad-b5712f33e397.png)
 
-### Now playing
-Check what is on screen in that week.
-
 ### Film description
 Read more about film.
+![image](https://user-images.githubusercontent.com/53261107/66275421-8ff67200-e888-11e9-8b36-4f4b4582b826.png)
 
 ### Booking seats
 Book seat for chosen film.
