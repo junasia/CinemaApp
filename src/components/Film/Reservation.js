@@ -18,25 +18,23 @@ class Reservation extends React.Component {
     renderReservationBox = () => {
         let film = this.props.films ? this.props.films.find(x => x.imdbID === this.props.film.imdbID) : null;
         if (!film) return <div>Brak seansów</div>;
-        let seances = film.day.seances.slice(0, 7).map(x => {
+        let seances = film.day.seances.map(x => {
             return (
-                <li key={x._id}>
-                    <Link
-                        to="/reservation"
-                        key={x._id}
-                        id={x._id}
-                        value={x._id}
-                        onClick={this.clickButton}
-                        className="btn btn-primary btn-sm mb-1 mr-1"
-                    >
-                        {x.hour}
-                    </Link>
-                </li>
+                <Link
+                    to="/reservation"
+                    key={x._id}
+                    id={x._id}
+                    value={x._id}
+                    onClick={this.clickButton}
+                    className="btn btn-primary btn-sm mb-1 mr-1"
+                >
+                    {x.hour}
+                </Link>
             );
         });
         return (
             <div>
-                <h3>
+                <h3 className="mt-2">
                     Date:{' '}
                     {film.day.date.getDate() +
                         '-' +
@@ -44,7 +42,7 @@ class Reservation extends React.Component {
                         '-' +
                         (film.day.date.getYear() + 1900)}
                 </h3>
-                <ul className="list-unstyled d-inline-flex p-2">{seances}</ul>
+                <div className="list-unstyled d-inline-flex p-2 d-flex flex-wrap">{seances}</div>
             </div>
         );
     };

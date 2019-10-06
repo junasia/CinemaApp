@@ -7,7 +7,7 @@ body {
     position: relative;
 }
 
-body > container {
+#container {
     min-height: calc(100vh - 56px);
 }
 
@@ -33,17 +33,31 @@ figure {
     text-align: center;
 }
 
-figure > img {
+#carouselContainer {
+    background-color: black;
+}
+
+.carousel {
+    width: 90%;
+    height: 100%;
+}
+
+.carousel img {
     transition-duration: 1s;
 }
 
-figure:hover {
+.carousel img:hover {
     cursor: pointer;
-}
-
-figure:hover > img {
     transform: scale(0.9);
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+}
+
+.carousel-control-prev {
+    left: -8vw;
+}
+
+.carousel-control-next {
+    right: -8vw;
 }
 
 .seats-container {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { reserveSeat, cancelReserve } from '../../actions';
-import { async } from 'q';
 
 class ReservationSeats extends Component {
     constructor(props) {
@@ -38,12 +37,9 @@ class ReservationSeats extends Component {
     };
 
     waitForSeanceData = async () => {
-        setTimeout(
-            (() => {
-                if (!this.props.reservation.seats.length) this.setState({ redirect: '#/' });
-            }).bind(this),
-            1000
-        );
+        setTimeout(() => {
+            if (!this.props.reservation.seats.length) this.setState({ redirect: '#/' });
+        }, 1000);
     };
 
     renderSeats() {
