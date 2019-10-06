@@ -5,7 +5,6 @@ import { fetchSeats } from '../../actions';
 
 class Reservation extends React.Component {
     render() {
-        console.log(this.props.film, this.props.films);
         if (this.props.film)
             return (
                 <div className="col-sm-4 text-center">
@@ -53,24 +52,6 @@ class Reservation extends React.Component {
         this.props.fetchSeats(e.target.id, this.props.film);
     };
 }
-// renderHours = () => {
-//     if (this.props.film.day)
-//         return this.props.film.day.seances.map(x => {
-//             return (
-//                 <Link
-//                     to="/reservation"
-//                     key={x._id}
-//                     id={x._id}
-//                     value={x._id}
-//                     onClick={this.clickButton}
-//                     className="btn btn-primary btn-sm mb-1 mr-1"
-//                 >
-//                     {x.hour}
-//                 </Link>
-//             );
-//         });
-//     else return <div>Brak seansów</div>;
-// };
 
 const mapStateToProps = state => {
     return { film: state.film, cinema: state.cinema, films: state.films };

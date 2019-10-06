@@ -11,12 +11,10 @@ class ReservationSeats extends Component {
     }
 
     clickSeatButton = e => {
-        console.log(e.target);
         if (e.target.value === 'false') return;
         if (this.props.reservation.reservations.includes(e.target.id)) {
             this.props.cancelReserve(e.target.id);
         } else this.props.reserveSeat(e.target.id);
-        console.log('cancle: ', this.props.reservation);
     };
 
     renderNumberOfSeat = seat => {

@@ -10,7 +10,6 @@ class Form extends React.Component {
     }
 
     ensurePhoneValidity = number => {
-        console.log(number, typeof number);
         const slices = number.split('-');
         let phone = slices.join('').slice(0, 9);
         if (phone.length > 3) {
@@ -47,7 +46,6 @@ class Form extends React.Component {
     };
 
     handleSubmit = async event => {
-        console.log(this.props.reservation, this.state);
         let res = {
             phone: this.state.phone.split('-').join(''),
             mail: this.state.email,
@@ -61,7 +59,6 @@ class Form extends React.Component {
                 };
             })
         };
-        console.log(res);
         if ((await this.props.postReservation(res)) !== null) this.setState({ redirect: true });
         event.persist();
     };

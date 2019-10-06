@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 class FormInformation extends React.Component {
     render() {
-        console.log('ressss: ', this.props.reservation);
         return (
             <div className="jumbotron pt-3 mt-3 width-80">
                 <h1 className="display-4">Provide contact details</h1>

@@ -4,7 +4,6 @@ import { postReservation } from '../../actions';
 
 class ReservationDone extends React.Component {
     render() {
-        console.log(this.props.reservation);
         return (
             <div>
                 <div className="d-flex flex-column align-items-center">

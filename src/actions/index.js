@@ -32,7 +32,6 @@ const _fetchFilms = _.memoize(async (id, dispatch) => {
     });
 
     dispatch({ type: 'FETCH_FILMS', payload: films });
-    //dispatch({ type: 'SAVE_DATE', payload: new Date(Date.now) });
 });
 
 export const fetchFilm = id => async dispatch => _fetchFilm(id, dispatch);
