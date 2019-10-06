@@ -12,8 +12,7 @@ router.get('/:id', cors(), async (req, res) => {
 });
 
 router.post('/:id', cors(), async (req, res) => {
-
-  
+ 
   const reservation = new Reservation({
     name: req.body.name,
     seance: req.body.seance,
@@ -25,6 +24,11 @@ router.post('/:id', cors(), async (req, res) => {
 
   const seance = await Seance.findById(req.params.id);
   req.body.seats.forEach(x => {
+    if(seance.seats[x.rowNumber][x.seatNumber] == false)
+    {
+      res.send("This seat has already been taken!");
+      return;
+    }
     seance.seats[x.rowNumber][x.seatNumber] = false;
   });
   seance.markModified('seats');
