@@ -6,7 +6,7 @@ class FilmPosters extends React.Component {
     render() {
         return (
             <ul className="list-group list-group-flush width-80">
-                <li class="list-group-item d-flex justify-content-around flex-wrap">{this.renderList()}</li>
+                <li className="list-group-item d-flex justify-content-around flex-wrap">{this.renderList()}</li>
             </ul>
         );
     }
@@ -15,14 +15,14 @@ class FilmPosters extends React.Component {
         if (!this.props.films) return <div />;
         return this.props.films.slice(0, 6).map(x => {
             return (
-                <figure class="m-2">
-                    <Link to={'/film/' + x.imdbID}>
-                        <img src={x.poster} class="img-thumbnail" alt={x.name} />
-                        <figcaption class="text-center">
+                <Link to={'/film/' + x.imdbID} key={x.imdbID} style={{ textDecoration: 'none', color: 'black' }}>
+                    <figure className="m-2">
+                        <img src={x.poster} className="img-thumbnail" alt={x.name} />
+                        <figcaption className="text-center">
                             <h6>{x.name}</h6>
                         </figcaption>
-                    </Link>
-                </figure>
+                    </figure>
+                </Link>
             );
         });
     }

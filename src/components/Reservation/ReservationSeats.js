@@ -25,14 +25,10 @@ class ReservationSeats extends Component {
         return seat[0] + seat[2] + seat[3];
     };
 
-    logSeats = () => {
-        console.log(this.props, this.props.reservation);
-    };
-
     getSeatClassName = (seat, seatId) => {
         let className;
-        if (this.props.reservation.reservations.includes(seatId)) className = 'btn btn-primary btn-sm';
-        else className = 'btn ' + (seat ? 'btn-success' : 'btn-danger') + ' btn-sm';
+        if (this.props.reservation.reservations.includes(seatId)) className = 'btn btn-danger btn-sm';
+        else className = 'btn ' + (seat ? 'btn-success' : 'btn-secondary disabled') + ' btn-sm';
         return className;
     };
 
@@ -77,29 +73,6 @@ class ReservationSeats extends Component {
                         <hr className="my-4" />
                         <h3>Title: </h3>
                         <h5>{this.props.reservation.film ? this.props.reservation.film.name : null}</h5>
-                        {/* <form>
-                            <div className="form-row">
-                                <div className="col-sm-6">
-                                    <label htmlFor="inputDate">Date</label>
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        id="inputDate"
-                                        defaultValue="2019-10-01"
-                                        min="2019-10-01"
-                                        max="2019-10-08"
-                                    />
-                                </div>
-                                <div className="col-sm-6">
-                                    <label htmlFor="inputTime">Time</label>
-                                    <select defaultValue={'DEFAULT'} id="inputTime" className="form-control">
-                                        <option value="DEFAULT">13:00</option>
-                                        <option value="1">15:00</option>
-                                        <option value="2">17:30</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </form> */}
                     </div>
                     <ul className="list-group list-group-flush width-80">
                         <li className="list-group-item d-flex justify-content-around">
@@ -113,9 +86,6 @@ class ReservationSeats extends Component {
                             </div>
                             {this.renderSeats()}
                             <div className="d-flex justify-content-around w-100 mt-5">
-                                <button onClick={this.logSeats} type="button" className="btn btn-success btn-lg">
-                                    CHECK PROPS
-                                </button>
                                 <a className="btn btn-warning" href="#/" role="button">
                                     Back
                                 </a>

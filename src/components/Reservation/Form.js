@@ -9,6 +9,19 @@ class Form extends React.Component {
         this.state = { firstName: '', lastName: '', phone: '', email: '', redirect: false };
     }
 
+    ensurePhoneValidity = number => {
+        console.log(number, typeof number);
+        const slices = number.split('-');
+        let phone = slices.join('').slice(0, 9);
+        if (phone.length > 3) {
+            phone = phone.slice(0, 3) + '-' + phone.slice(3, 9);
+        }
+        if (phone.length > 7) {
+            phone = phone.slice(0, 7) + '-' + phone.slice(7, 10);
+        }
+        return phone;
+    };
+
     handleChange = event => {
         switch (event.target.id) {
             case 'firstNameInput':
@@ -20,7 +33,8 @@ class Form extends React.Component {
                 break;
 
             case 'phoneInput':
-                this.setState({ phone: event.target.value });
+                const number = this.ensurePhoneValidity(event.target.value);
+                this.setState({ phone: number });
                 break;
 
             case 'emailInput':
@@ -35,7 +49,7 @@ class Form extends React.Component {
     handleSubmit = async event => {
         console.log(this.props.reservation, this.state);
         let res = {
-            phone: this.state.phone,
+            phone: this.state.phone.split('-').join(''),
             mail: this.state.email,
             name: this.state.firstName + ' ' + this.state.lastName,
             seance: this.props.reservation.seance,
@@ -68,6 +82,7 @@ class Form extends React.Component {
                                         type="text"
                                         className="form-control"
                                         min="2"
+                                        value={this.state.firstName}
                                         onChange={this.handleChange}
                                         id="firstNameInput"
                                         placeholder="First name"
@@ -84,6 +99,7 @@ class Form extends React.Component {
                                         type="text"
                                         className="form-control"
                                         min="2"
+                                        value={this.state.lastName}
                                         onChange={this.handleChange}
                                         id="lastNameInput"
                                         placeholder="Last name"
@@ -97,9 +113,10 @@ class Form extends React.Component {
                                 </label>
                                 <div className="col-sm-9">
                                     <input
-                                        type="number"
+                                        type="tel"
                                         className="form-control"
-                                        min="4"
+                                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                                        value={this.state.phone}
                                         onChange={this.handleChange}
                                         id="phoneInput"
                                         placeholder="Phone"
@@ -116,6 +133,7 @@ class Form extends React.Component {
                                         type="email"
                                         className="form-control"
                                         id="emailInput"
+                                        value={this.state.email}
                                         onChange={this.handleChange}
                                         placeholder="Email adress"
                                         required
