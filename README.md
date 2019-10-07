@@ -3,6 +3,7 @@ This app allow to check which films are being played in cinemas, read more about
 
 ## Table of Contents
 - [NPM packages and versions](#npm-packages-and-versions)
+- [API](#api)
 - [How to use](#how-to-open)
 - [Usage](#usage)
   * [Program](#program)
@@ -22,6 +23,22 @@ This app allow to check which films are being played in cinemas, read more about
 - [node-fetch:](https://www.npmjs.com/package/node-fetch) 2.6.0
 - [node-schedule:](https://www.npmjs.com/package/node-schedule) 1.3.2
 - [winston:](https://www.npmjs.com/package/winston) 3.2.1
+
+## API
+External APIs used in the project:
+- [OMDb](http://omdbapi.com/)
+- [Cinelist](https://api.cinelist.co.uk/)
+
+A custom API was made for this project to provide data combined from 2 separate sources. This API provides repertoir for all supported cinemas. You can request seances for each cinema 7 days ahead with crucial information about each movie that will be played at given day and hour.
+
+The server for this API was set at [Heroku](heroku.com) and can be accessed [here](https://vast-citadel-46907.herokuapp.com/)
+
+Crucial endpoints are:
+- api/cinemas - get list of all supported cinemas
+- api/cinemas/:id - get repertoir of specified cinema
+- api/movies - get our movie database
+- api/movies/:id - get information about specified movie
+- api/seances/:id - get information about specified seance
 
 ## How to open
 Link to application: https://junasia.github.io/CinemaApp/
