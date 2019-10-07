@@ -31,7 +31,7 @@ External APIs used in the project:
 
 A custom API was made for this project to provide data combined from 2 separate sources. This API provides repertoir for all supported cinemas. You can request seances for each cinema 7 days ahead with crucial information about each movie that will be played at given day and hour.
 
-The server for this API was set at [Heroku](heroku.com) and can be accessed [here](https://vast-citadel-46907.herokuapp.com/)
+The server for this API was set at [Heroku](https://heroku.com) and can be accessed [here](https://vast-citadel-46907.herokuapp.com/)
 
 Crucial endpoints are:
 - api/cinemas - get list of all supported cinemas
